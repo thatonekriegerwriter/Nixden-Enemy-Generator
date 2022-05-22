@@ -1,4 +1,10 @@
 #!usr/bin/env ruby
+module Screen
+    def self.clear
+        print "\e[2J\e[f"
+    end
+end
+
 module EnemyGenerator
 $i = 0
 $num = 5
@@ -84,34 +90,36 @@ while $i < $num  do
    print "Welcome to the Nixden Character Editor!\n" 
    print "[Generate] Enemy\n"
    print "[Import] Character\n"
-   print "[Clear] Output\n"
+   print "[Erase] Output\n"
    print "[End] Session\n"
    case gets().strip()
-when "Clear"
+	  when "clear"
+	  Screen.clear
+when "Erase"
 print "Are you sure you want to clear output? \n"  
   case gets().strip()
+	  when "clear"
+	  Screen.clear
   when "Yes"
   print "Clearing output...\n"  
-	File.open('Information\EnemyOutput.txt',"w") do |f|
-	  f.puts ""
-	end
-	File.open('Information\EnemyOutputFancy.txt',"w") do |f|
-	  f.puts ""
-	end
-	File.open('Information\CharacterExporter.txt',"w") do |f|
-	  f.puts ""
-	end
+	File.truncate('Information\EnemyOutput.txt',0)
+	File.truncate('Information\EnemyOutputFancy.txt',0)
+	File.open('Information\CharacterExporter.txt',0)
   when "No"
  end
 when "Generate"
   while $i < $num  do 
   print "Do you want to generate a [Human] or a [Monster]? \n"  
   case gets().strip()
+	  when "clear"
+	  Screen.clear
   when "Human"
   print "What kind of Human? \n"  
    print "[Psydonian]\n"
    print "[Terran]\n"
   case gets().strip()
+	  when "clear"
+	  Screen.clear
   when "Terran"
     $SPECIES = "Terran"
     $HP = 20
@@ -181,6 +189,8 @@ when "Generate"
    print "[Green Mage]\n"
    print "[Sage]\n"
      case gets().strip()
+	  when "clear"
+	  Screen.clear
       when "Knight"
 	$CLASS = "Knight"
 	$HP += 100
@@ -296,15 +306,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Archer"
 	$CLASS = "Archer"
@@ -335,7 +345,7 @@ when "Generate"
     $TO = 4
     $SENSE1 = "Bow"
     $SENSEL1 = 1
-    $SENSE2 = "None"
+    $SENSE2 = 0
     $SENSEL2 = 1
     $SENSE3 = "Magic Power"
     $SENSEL3 = 1
@@ -359,15 +369,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Barbarian"
 	$CLASS = "Barbarian"
@@ -426,15 +436,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "White Mage"
 	$CLASS = "White Mage"
@@ -471,17 +481,17 @@ when "Generate"
     $SENSEL3 = 1
     $SENSE4 = "Recovery Arts"
     $SENSEL4 = 1
-    $SENSE5 = "None"
+    $SENSE5 = 0
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Black Mage"
 	$CLASS = "Black Mage"
@@ -552,15 +562,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Fighter"
 	$CLASS = "Fighter"
@@ -692,15 +702,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Bard" 
 	$CLASS = "Bard"
@@ -755,15 +765,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
 	when "Songstress"
 	$CLASS = "Songstress"
@@ -818,15 +828,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Dancer"
 	$CLASS = "Dancer"
@@ -881,15 +891,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Fencer"
 	$CLASS = "Fencer"
@@ -944,15 +954,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Paladin"
 	$CLASS = "Paladin"
@@ -1007,15 +1017,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Illusionist"
 	$CLASS = "Illusionist"
@@ -1070,15 +1080,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Time Mage"
 	$CLASS = "Time Mage"
@@ -1134,15 +1144,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Red Mage"
 	$CLASS = "Red Mage"
@@ -1198,15 +1208,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Hunter"
 	$CLASS = "Hunter"
@@ -1261,15 +1271,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Assassin"
 	$CLASS = "Assassin"
@@ -1325,15 +1335,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Blue Mage"
 	$CLASS = "Blue Mage"
@@ -1389,15 +1399,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Gunner"
 	$CLASS = "Gunner"
@@ -1453,15 +1463,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Juggler"
 	$CLASS = "Juggler"
@@ -1517,15 +1527,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Spellsword"
 	$CLASS = "Spellsword"
@@ -1581,15 +1591,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Beastmaster"
 	$CLASS = "Beastmaster"
@@ -1644,15 +1654,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Summoner"
 	$CLASS = "Summoner"
@@ -1707,15 +1717,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Gadgeteer"
 	$CLASS = "Gadgeteer"
@@ -1771,15 +1781,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Ranger"
 	$CLASS = "Ranger"
@@ -1835,15 +1845,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Parivir"
 	$CLASS = "Parivir"
@@ -1899,15 +1909,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Seer"
 	$CLASS = "Seer"
@@ -1963,15 +1973,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Heritor"
 	$CLASS = "Heritor"
@@ -2027,15 +2037,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Green Mage"
 	$CLASS = "Green Mage"
@@ -2091,15 +2101,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
     when "Sage"
 	$CLASS = "Sage"
@@ -2154,15 +2164,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = "None"
+    $SENSE6 = 0
     $SENSEL6 = 1
-    $SENSE7 = "None"
+    $SENSE7 = 0
     $SENSEL7 = 1
-    $SENSE8 = "None"
+    $SENSE8 = 0
     $SENSEL8 = 1
-    $SENSE9 = "None"
+    $SENSE9 = 0
     $SENSEL9 = 1
-    $SENSE10 = "None"
+    $SENSE10 = 0
     $SENSEL10 = 1
 	else
 	print "Error. \n"
@@ -2172,6 +2182,8 @@ when "Generate"
     print "[Yes] \n" 
     print "[No] \n" 
      case gets().strip()
+	  when "clear"
+	  Screen.clear
       when "Yes"
         print "What do you want to name them? \n" 
         $NAME = gets()
@@ -2193,6 +2205,8 @@ when "Generate"
     print "[Full] \n" 
     print "[Undefined] \n" 
      case gets().strip()
+	  when "clear"
+	  Screen.clear
       when "Full"
 	     puts "What would you like Sense 1 to be? \n" 
 		 $SENSE1 = gets()
@@ -2407,6 +2421,8 @@ when "Generate"
     $NAME = 0
     print "Press Any Key to Continue... \n"  
       case gets().strip()
+	  when "clear"
+	  Screen.clear
 	  when ""
 	   break
 	  else
@@ -2415,6 +2431,8 @@ when "Generate"
 when "Monster"
    print "Do you want a Defined [Species], or a [Random] Monster? \n"  
    case gets().strip()
+	  when "clear"
+	  Screen.clear
    when "Random"
    print "What Level do you want? \n" 
      $LEVEL = gets()
@@ -2539,6 +2557,8 @@ when "Monster"
     $LEVEL = 0
     print "Press Any Key to Continue... \n"  
       case gets().strip()
+	  when "clear"
+	  Screen.clear
 	  when ""
 	   break
 	  else
@@ -2546,10 +2566,63 @@ when "Monster"
 	  end
 	end
    when "Species"
-    print "Press Any Key to Continue... \n"  
-      case gets().strip()
-	  when ""
-	   break
+    print "Specify a Species. \n"  
+	  $SPECIES= gets()
+      case $SPECIES
+	  when "Dragon"
+   print "What Level do you want? \n" 
+     $LEVEL = gets()
+    $MR += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $PATK += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $MATK += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $DEX += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $ACC += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $BLK += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $DOD += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $PER += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $CHAR += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $LUCK += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $SNEAK += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $MOVE += rand(1..7)
+    $STA = 7
+    $HP += rand(70..200) + (5*$LEVEL.to_i) + 50
+    $TO += rand(1..7)
+	  when "Andoglires"
+   print "What Level do you want? \n" 
+     $LEVEL = gets()
+    $MR += (1*$LEVEL.to_i) + rand(1..20)   
+    $PATK += (1*$LEVEL.to_i) + rand(1..20)   
+    $MATK += (1*$LEVEL.to_i) + rand(1..20)   
+    $DEX += (1*$LEVEL.to_i) + rand(1..20)   
+    $ACC += (1*$LEVEL.to_i) + rand(1..20) + 25 
+    $BLK += (1*$LEVEL.to_i) + rand(1..20)   
+    $DOD += (1*$LEVEL.to_i) + rand(1..20) + 25
+    $PER += (1*$LEVEL.to_i) + rand(1..20)   
+    $CHAR += (1*$LEVEL.to_i) + rand(1..20) +10
+    $LUCK += (1*$LEVEL.to_i) + rand(1..20)+ 10
+    $SNEAK += (1*$LEVEL.to_i) + rand(1..20) 
+    $MOVE += rand(1..7)
+    $STA = 7
+    $HP += rand(70..200) + (2*$LEVEL.to_i) + 5
+    $TO += rand(1..7)
+	  when "Teratect"
+   print "What Level do you want? \n" 
+     $LEVEL = gets()
+    $MR += (4*$LEVEL.to_i) + rand(1..20) + 56
+    $PATK += (4*$LEVEL.to_i) + rand(1..20)   
+    $MATK += (4*$LEVEL.to_i) + rand(1..20)   
+    $DEX += (4*$LEVEL.to_i) + rand(1..20)   
+    $ACC += (4*$LEVEL.to_i) + rand(1..20)   
+    $BLK += (4*$LEVEL.to_i) + rand(1..20)   
+    $DOD += (4*$LEVEL.to_i) + rand(1..20)   
+    $PER += (4*$LEVEL.to_i) + rand(1..20)   
+    $CHAR += (4*$LEVEL.to_i) + rand(1..20)   
+    $LUCK += (4*$LEVEL.to_i) + rand(1..20)   
+    $SNEAK += (4*$LEVEL.to_i) + rand(1..20)   
+    $MOVE += rand(1..7)
+    $STA = 7
+    $HP += rand(70..200) + 56
+    $TO += rand(1..7)
 	  else
 	   break
 	  end
@@ -2617,6 +2690,8 @@ when "Import"
    print "[Import]\n"
    print "[End]\n"
       case gets().strip()
+	  when "clear"
+	  Screen.clear
 	  when "View"
 	puts "Name: #$NAME"
 	puts "Species: #$SPECIES"
@@ -2638,16 +2713,16 @@ when "Import"
 	puts "MOVE: #$MOVE"
 	puts "TO: #$TO \n"
 	puts "Senses: \n"
-	puts "#$SENSE1 #$SENSEL1"
-	puts "#$SENSE2 #$SENSEL2"
-	puts "#$SENSE3#$SENSEL3"
-	puts "#$SENSE4#$SENSEL4"
-	puts "#$SENSE5#$SENSEL5"
-    puts "#$SENSE6#$SENSEL6"
-    puts "#$SENSE7#$SENSEL7"
-    puts "#$SENSE8#$SENSEL8"
-	puts "#$SENSE9#$SENSEL9"
-	puts "#$SENSE10#$SENSEL10"
+	puts "#$SENSE1 Lv#$SENSEL1"
+	puts "#$SENSE2 Lv#$SENSEL2"
+	puts "#$SENSE3 Lv#$SENSEL3"
+	puts "#$SENSE4 Lv#$SENSEL4"
+	puts "#$SENSE5 Lv#$SENSEL5"
+    puts "#$SENSE6 Lv#$SENSEL6"
+    puts "#$SENSE7 Lv#$SENSEL7"
+    puts "#$SENSE8 Lv#$SENSEL8"
+	puts "#$SENSE9 Lv#$SENSEL9"
+	puts "#$SENSE10 Lv#$SENSEL10"
 	puts "Traits:"
 	puts "#$TRAIT1"
 	puts "#$TRAIT2"
@@ -2716,6 +2791,8 @@ when "Import"
    print "[Yes]\n"
    print "[No]\n"
       case gets().strip()
+	  when "clear"
+	  Screen.clear
 	  when "Yes"
 	  $LEVELOld = $LEVEL
      while $i < $num  do  
@@ -2739,15 +2816,89 @@ when "Import"
 	  print "[LUCK] \n"
 	  print "[SNEAK] \n"
 	  case gets().strip()
+	  when "clear"
+	  Screen.clear
+	  when "clear"
+	  system ("cls")
 	  when "LEVEL"
 	   $LEVEL= $LEVEL.to_i + 1
 	   print "<Experience has reached the required level. #$NAME has increased from Lv#$LEVELOld to LV#$LEVEL.>\n"
+	   case $SPECIES
+	   when "Dragon"
+        $HP = $HP.to_i + 5
+        $MR = $MR.to_i + 7
+        $PATK = $PATK.to_i + 7
+        $MATK = $MATK.to_i + 7
+        $DEX = $DEX.to_i + 7
+        $ACC = $ACC.to_i + 7
+        $BLK = $BLK.to_i + 7
+        $DOD = $DOD.to_i + 7
+        $PER = $PER.to_i + 7
+        $CHAR = $CHAR.to_i + 7
+        $LUCK = $LUCK.to_i + 7
+        $SNEAK = $SNEAK.to_i + 7
+	  when "Andoglires"
+        $HP = $HP.to_i + 2
+        $MR = $MR.to_i + 1
+        $PATK = $PATK.to_i + 1
+        $MATK = $MATK.to_i + 1
+        $DEX = $DEX.to_i + 1
+        $ACC = $ACC.to_i + 1
+        $BLK = $BLK.to_i + 1
+        $DOD = $DOD.to_i + 1
+        $PER = $PER.to_i + 1
+        $CHAR = $CHAR.to_i + 1
+        $LUCK = $LUCK.to_i + 1
+        $SNEAK = $SNEAK.to_i + 1
+	  when "Teratect"
+        $HP = $HP.to_i + 20
+        $MR = $MR.to_i + 4
+        $PATK = $PATK.to_i + 4
+        $MATK = $MATK.to_i + 4
+        $DEX = $DEX.to_i + 4
+        $ACC = $ACC.to_i + 4
+        $BLK = $BLK.to_i + 4
+        $DOD = $DOD.to_i + 4
+        $PER = $PER.to_i + 4
+        $CHAR = $CHAR.to_i + 4
+        $LUCK = $LUCK.to_i + 4
+        $SNEAK = $SNEAK.to_i + 4
+	  when "Mimic"
+        $HP = $HP.to_i + 10
+        $MR = $MR.to_i + 6
+        $PATK = $PATK.to_i + 2
+        $MATK = $MATK.to_i + 6
+        $DEX = $DEX.to_i + 1
+        $ACC = $ACC.to_i + 1
+        $BLK = $BLK.to_i + 1
+        $DOD = $DOD.to_i + 1
+        $PER = $PER.to_i + 1
+        $CHAR = $CHAR.to_i + 1
+        $LUCK = $LUCK.to_i + 1
+        $SNEAK = $SNEAK.to_i + 1
+	  when "Ghost"
+        $HP = $HP.to_i + 0
+        $MR = $MR.to_i + 10
+        $PATK = $PATK.to_i + 0
+        $MATK = $MATK.to_i + 0
+        $DEX = $DEX.to_i + 0
+        $ACC = $ACC.to_i + 0
+        $BLK = $BLK.to_i + 0
+        $DOD = $DOD.to_i + 0
+        $PER = $PER.to_i + 0
+        $CHAR = $CHAR.to_i + 0
+        $LUCK = $LUCK.to_i + 0
+        $SNEAK = $SNEAK.to_i + 0
+	end
+	   
 	  when "HP"
 	   $HPOld = $HP
 	   print "#$NAME 's HP is #$HP. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $HP  = $HP.to_i + $INCREASE.to_i
@@ -2795,45 +2946,47 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "2"
            $INCREASE = rand(1..7)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "3"
            $INCREASE = rand(2..10)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "4"
            $INCREASE = rand(3..13)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "5"
            $INCREASE = rand(4..15)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "6"
            $INCREASE = rand(5..16)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "7"
            $INCREASE = rand(6..17)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "8"
            $INCREASE = rand(7..18)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "9"
            $INCREASE = rand(8..19)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	     when "10" 
            $INCREASE = $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
 	  end
 	   print "#$NAME 's MR is now #$MR. \n"
 	  when "PATK"
@@ -2842,46 +2995,48 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
            $INCREASE = rand(0..5)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "2"
            $INCREASE = rand(1..7)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "3"
            $INCREASE = rand(2..10)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "4"
            $INCREASE = rand(3..13)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "5"
            $INCREASE = rand(4..15)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "6"
            $INCREASE = rand(5..16)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "7"
            $INCREASE = rand(6..17)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "8"
            $INCREASE = rand(7..18)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "9"
            $INCREASE = rand(8..19)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	     when "10"
            $INCREASE = rand(9..20) 
            $PATK  = $PATK.to_i+ $INCREASE.to_i
-	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
 	  end
 	   print "#$NAME 's PATK is #$PATK. \n"
 	  when "MATK"
@@ -2889,6 +3044,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
            $INCREASE = rand(0..5)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
@@ -2937,6 +3094,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
@@ -2984,6 +3143,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
@@ -3031,6 +3192,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
@@ -3078,6 +3241,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
@@ -3125,6 +3290,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $PER  = $PER.to_i+ $INCREASE.to_i
@@ -3172,6 +3339,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
@@ -3220,6 +3389,8 @@ when "Import"
 	   print "Put in Approprate Number..\n"
 	   print "or type [Back] to go back."
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
@@ -3268,6 +3439,8 @@ when "Import"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
@@ -3331,8 +3504,10 @@ when "Import"
 	   print "[8].)#$SENSE8 \n"
 	   print "[9].)#$SENSE9 \n"
 	   print "[10].)#$SENSE10 \n"
-	   print "<Proficiency has reached the required level.>"
+	   print "<Proficiency has reached the required level.> \n"
 	   case gets().strip()
+	  when "clear"
+	  Screen.clear
 	     when "1"
 	        print "#$SENSE1's level is #$SENSEL1 \n"
 	        print "Level it up by how many points....?\n"
@@ -3341,472 +3516,476 @@ when "Import"
 	     when "1"
 		   $INCREASE = 1
            $SENSEL1  = $SENSEL1.to_i + 1
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL1  = $SENSEL1.to_i + 2
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL1  = $SENSEL1.to_i + 3
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL1  = $SENSEL1.to_i + 4
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL1  = $SENSEL1.to_i + 5
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL1  = $SENSEL1.to_i + 6
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL1  = $SENSEL1.to_i + 7
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL1  = $SENSEL1.to_i + 8
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL1  = $SENSEL1.to_i + 9
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL1  = $SENSEL1.to_i + 10
-	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       put "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	  end
-	        print "#$SENSE1's level is #$SENSEL1 \n"
+	        put "#$SENSE1's level is #$SENSEL1 \n"
 	     when "2"
-	        print "#$SENSE2's level is #$SENSEL2 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE2's level is #$SENSEL2 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL2  = $SENSEL2.to_i + 1
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL2  = $SENSEL2.to_i + 2
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL2  = $SENSEL2.to_i + 3
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL2  = $SENSEL2.to_i + 4
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL2  = $SENSEL2.to_i + 5
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL2  = $SENSEL2.to_i + 6
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL2  = $SENSEL2.to_i + 7
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL2  = $SENSEL2.to_i + 8
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL2  = $SENSEL2.to_i + 9
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL2  = $SENSEL2.to_i + 10
-	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       put "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	  end
-	        print "#$SENSE2's level is #$SENSEL2 \n"
+	        put "#$SENSE2's level is #$SENSEL2 \n"
 	     when "3"
-	        print "#$SENSE3's level is #$SENSEL3 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE3's level is #$SENSEL3 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL3  = $SENSEL3.to_i + 1
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL3  = $SENSEL3.to_i + 2
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL3  = $SENSEL3.to_i + 3
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL3  = $SENSEL3.to_i + 4
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL3  = $SENSEL3.to_i + 5
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL3  = $SENSEL3.to_i + 6
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL3  = $SENSEL3.to_i + 7
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL3  = $SENSEL3.to_i + 8
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL3  = $SENSEL3.to_i + 9
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL3  = $SENSEL3.to_i + 10
-	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       put "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	  end
-	        print "#$SENSE3's level is #$SENSEL3 \n"
+	        put "#$SENSE3's level is #$SENSEL3 \n"
 	     when "4"
-	        print "#$SENSE4's level is #$SENSEL4 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE4's level is #$SENSEL4 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL4  = $SENSEL4.to_i + 1
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL4  = $SENSEL4.to_i + 2
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL4  = $SENSEL4.to_i + 3
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL4  = $SENSEL4.to_i + 4
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL4  = $SENSEL4.to_i + 5
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL4  = $SENSEL4.to_i + 6
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL4  = $SENSEL4.to_i + 7
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL4  = $SENSEL4.to_i + 8
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL4  = $SENSEL4.to_i + 9
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL4  = $SENSEL4.to_i + 10
-	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       put "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	  end
-	        print "#$SENSE4's level is #$SENSEL4 \n"
+	        put "#$SENSE4's level is #$SENSEL4 \n"
 	     when "5"
-	        print "#$SENSE5's level is #$SENSEL5 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE5's level is #$SENSEL5 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL5  = $SENSEL5.to_i + 1
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL5  = $SENSEL5.to_i + 2
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL5  = $SENSEL5.to_i + 3
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL5  = $SENSEL5.to_i + 4
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL5  = $SENSEL5.to_i + 5
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL5  = $SENSEL5.to_i + 6
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL5  = $SENSEL5.to_i + 7
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL5  = $SENSEL5.to_i + 8
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL5  = $SENSEL5.to_i + 9
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL5  = $SENSEL5.to_i + 10
-	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       put "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	  end
-	        print "#$SENSE5's level is #$SENSEL5 \n"
+	        put "#$SENSE5's level is #$SENSEL5 \n"
 	     when "6"
-	        print "#$SENSE6's level is #$SENSEL6 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE6's level is #$SENSEL6 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL6  = $SENSEL6.to_i + 1
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL6  = $SENSEL6.to_i + 2
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL6  = $SENSEL6.to_i + 3
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL6  = $SENSEL6.to_i + 4
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL6  = $SENSEL6.to_i + 5
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL6  = $SENSEL6.to_i + 6
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL6  = $SENSEL6.to_i + 7
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL6  = $SENSEL6.to_i + 8
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL6  = $SENSEL6.to_i + 9
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL6  = $SENSEL6.to_i + 10
-	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       put "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	  end
-	        print "#$SENSE6's level is #$SENSEL6 \n"
+	        put "#$SENSE6's level is #$SENSEL6 \n"
 	     when "7"
-	        print "#$SENSE7's level is #$SENSEL7 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE7's level is #$SENSEL7 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL7  = $SENSEL7.to_i + 1
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL7  = $SENSEL7.to_i + 2
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL7  = $SENSEL7.to_i + 3
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL7  = $SENSEL7.to_i + 4
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL7  = $SENSEL7.to_i + 5
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL7  = $SENSEL7.to_i + 6
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL7  = $SENSEL7.to_i + 7
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL7  = $SENSEL7.to_i + 8
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL7  = $SENSEL7.to_i + 9
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL7  = $SENSEL7.to_i + 10
-	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       put "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	  end
-	        print "#$SENSE7's level is #$SENSEL7 \n"
+	        put "#$SENSE7's level is #$SENSEL7 \n"
 	     when "8"
-	        print "#$SENSE8's level is #$SENSEL8 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE8's level is #$SENSEL8 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL8  = $SENSEL8.to_i + 1
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL8  = $SENSEL8.to_i + 2
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL8  = $SENSEL8.to_i + 3
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL8  = $SENSEL8.to_i + 4
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL8  = $SENSEL8.to_i + 5
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL8  = $SENSEL8.to_i + 6
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL8  = $SENSEL8.to_i + 7
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL8  = $SENSEL8.to_i + 8
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL8  = $SENSEL8.to_i + 9
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL8  = $SENSEL8.to_i + 10
-	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       put "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	  end
-	        print "#$SENSE8's level is #$SENSEL8 \n"
+	        put "#$SENSE8's level is #$SENSEL8 \n"
 	     when "9"
-	        print "#$SENSE9's level is #$SENSEL9 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE9's level is #$SENSEL9 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL9  = $SENSEL9.to_i + 1
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL9  = $SENSEL9.to_i + 2
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL9  = $SENSEL9.to_i + 3
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL9  = $SENSEL9.to_i + 4
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL9  = $SENSEL9.to_i + 5
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL9  = $SENSEL9.to_i + 6
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL9  = $SENSEL9.to_i + 7
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL9  = $SENSEL9.to_i + 8
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL9  = $SENSEL9.to_i + 9
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL9  = $SENSEL9.to_i + 10
-	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       put "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	  end
-	        print "#$SENSE9's level is #$SENSEL9 \n"
+	        put "#$SENSE9's level is #$SENSEL9 \n"
 	     when "10"
-	        print "#$SENSE10's level is #$SENSEL10 \n"
-	        print "Level it up by how many points....?\n"
-	        print "[1]...[10]\n"
+	        put "#$SENSE10's level is #$SENSEL10 \n"
+	        put "Level it up by how many points....?\n"
+	        put "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
            $SENSEL10  = $SENSEL10.to_i + 1
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL10  = $SENSEL10.to_i + 2
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL10  = $SENSEL10.to_i + 3
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL10  = $SENSEL10.to_i + 4
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL10  = $SENSEL10.to_i + 5
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL10  = $SENSEL10.to_i + 6
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL10  = $SENSEL10.to_i + 7
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL10  = $SENSEL10.to_i + 8
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL10  = $SENSEL10.to_i + 9
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL10  = $SENSEL10.to_i + 10
-	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       put "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	  end
-	        print "#$SENSE10's level is #$SENSEL10 \n"
+	        put "#$SENSE10's level is #$SENSEL10 \n"
 	  end
+	  else
+	   break
 	  end
 	  end
 	  when "No"
+	  else
+	   break
 	  end
 	  when "Export"
 	puts "What would you like to name the output file?"
