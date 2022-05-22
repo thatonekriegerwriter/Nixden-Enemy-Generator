@@ -4093,6 +4093,7 @@ $TITLES = 0
 	  when "No"
 	  end
 	  when "End"
+	  if $LEVEL == $LEVELOld
 	 print "Would you like to clear out the Character Cache?\n"  
    print "[Yes]\n"
    print "[No]\n"
@@ -4148,6 +4149,9 @@ $TITLES = 0
 	  when "No"
         break
 	  end
+    else
+	 print "You have not saved.\n"  
+	end
 	  end
 	  end
 when "End"
