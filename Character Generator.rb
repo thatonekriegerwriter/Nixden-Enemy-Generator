@@ -1340,7 +1340,7 @@ when "Generate"
 	   break
 	  end
 when "Monster"
-   print "Do you want a Defined <Species>, or a <Random> Monster? \n"  
+   print "Do you want a Defined [Species], or a [Random] Monster? \n"  
    case gets().strip()
    when "Random"
    print "What Level do you want? \n" 
@@ -1359,6 +1359,7 @@ when "Monster"
     $MOVE += rand(1..7)
     $STA = 7
     $HP += rand(70..200)
+    $TO += rand(1..7)
 #=====================================
 #=====================================
 	puts "Enemy Level: #$LEVEL"
@@ -1376,27 +1377,7 @@ when "Monster"
 	puts "Enemy LUCK: #$LUCK"
 	puts "Enemy SNEAK: #$SNEAK"
 	puts "Enemy MOVE: #$MOVE"
-	puts "Enemy MOVE: #$TO"
-	puts "Senses:"
-	puts "#$SENSE1 #$SENSEL1" 
-	puts "#$SENSE2 #$SENSEL2"
-	puts "#$SENSE3 #$SENSEL3"
-	puts "#$SENSE4 #$SENSEL4"
-	puts "#$SENSE5 #$SENSEL5"
-    puts "#$SENSE6 #$SENSE67"
-    puts "#$SENSE7 #$SENSEL7"
-    puts "#$SENSE8 #$SENSEL8"
- 	puts "#$SENSE9 #$SENSEL9"
- 	puts "#$SENSE10 #$SENSEL10"
-	puts "Traits:"
-	puts "#$TRAIT1"
-	puts "#$TRAIT2"
-	puts "Perks:"
-	puts "#$PERKS"
-	puts "Other:"
-	puts "Ability: #$ABILITY"
-	puts "Skills: #$SKILLS"
-	puts "Titles: #$TITLES"
+	puts "Enemy TO: #$TO"
 #=====================================
 	open('Information\EnemyOutput.txt', "a+") do |f|
 	 f.puts "#$NAME"
@@ -1440,6 +1421,28 @@ when "Monster"
 	 f.puts "Titles: #$TITLES"
 	 f.puts "#====================================="
     end
+	open('Information\EnemyOutputFancy.txt', "a+") do |f|
+	 f.puts "Name: #$NAME"
+	 f.puts "Species: #$SPECIES"
+	 f.puts "Class: #$CLASS"
+	 f.puts "Level: #$LEVEL"
+     f.puts "HP: #$HP"
+     f.puts "MR: #$MR"
+     f.puts "PATK: #$PATK"
+     f.puts "MATK: #$MATK"
+     f.puts "DEX: #$DEX"
+     f.puts "ACC: #$ACC"
+     f.puts "BLK: #$BLK"
+     f.puts "DOD: #$DOD"
+     f.puts "PER: #$PER"
+     f.puts "CHAR: #$CHAR"
+     f.puts "LUCK: #$LUCK"
+     f.puts "SNEAK: #$SNEAK"
+     f.puts "MOVE: #$MOVE"
+     f.puts "STA: #$STA"
+     f.puts "TO: #$TO"
+	 f.puts "#====================================="
+	 end
     $HP = 0
     $MR = 0
     $STA = 0

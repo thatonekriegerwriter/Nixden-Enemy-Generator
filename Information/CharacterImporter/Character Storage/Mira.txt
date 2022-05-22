@@ -1,0 +1,53 @@
+
+Mira
+Terran
+Summoner
+16
+80
+223
+66
+97
+67
+62
+52
+92
+74
+25
+65
+46
+4
+12
+5
+Senses:
+Unarmed
+ 0
+Magic Power
+ 0
+Magic Talent
+ 0
+Neutral Element Talent
+ 0
+MR Consumption Reduction
+ 0
+Alchemy
+ 
+Enchant Arts
+ 0
+Fairy's Blessing
+ 0
+Robe
+ 0
+Action Restriction Release
+ 0
+Action Restriction Release
+ 0
+Traits:
+Another Kick in The Head
+Cinematic Technique
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
