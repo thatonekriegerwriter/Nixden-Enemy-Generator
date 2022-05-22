@@ -49,6 +49,36 @@ $ABILITY = 0
 $SKILLS = 0
 $TITLES = 0
 $CHARACTER = 0
+$HPOld = 0
+$MROld = 0
+$LEVELOld = 0
+$STAOld = 0
+$PATKOld = 0
+$MATKOld = 0
+$DEXOld = 0
+$ACCOld = 0
+$BLKOld = 0
+$DODOld = 0
+$PEROld = 0
+$CHAROld = 0
+$CHAR2Old = 0
+$LUCKOld = 0
+$SNEAKOld = 0
+$MOVEOld = 0
+$LEVELOld = 0
+$CLASSOld = 0
+$TOOld = 0
+$SENSEL1Old = 0
+$SENSEL2Old = 0
+$SENSEL3Old = 0
+$SENSEL4Old = 0
+$SENSEL5Old = 0
+$SENSEL6Old = 0
+$SENSEL7Old = 0
+$SENSEL8Old = 0
+$SENSEL9Old = 0
+$SENSEL10Old = 0
+$INCREASE = 0
 
 while $i < $num  do   
    print "Welcome to the Nixden Character Editor!\n" 
@@ -1415,27 +1445,33 @@ when "Monster"
      f.puts "#$LUCK"
      f.puts "#$SNEAK"
      f.puts "#$MOVE"
-     f.puts "#$TO"
-	 f.puts "Senses:"
-	 f.puts "#$SENSE1 #$SENSEL1" 
-	 f.puts "#$SENSE2 #$SENSEL2"
-	 f.puts "#$SENSE3 #$SENSEL3"
-	 f.puts "#$SENSE4 #$SENSEL4"
-	 f.puts "#$SENSE5 #$SENSEL5"
-     f.puts "#$SENSE6 #$SENSE67"
-     f.puts "#$SENSE7 #$SENSEL7"
-     f.puts "#$SENSE8 #$SENSEL8"
- 	 f.puts "#$SENSE9 #$SENSEL9"
- 	 f.puts "#$SENSE10 #$SENSEL10"
-	 f.puts "Traits:"
+	 f.puts "#$TO"
+	 f.puts "#$SENSE1" 
+	 f.puts "#$SENSEL1" 
+	 f.puts "#$SENSE2"
+	 f.puts "#$SENSEL2"
+	 f.puts "#$SENSE3"
+	 f.puts "#$SENSEL3"
+	 f.puts "#$SENSE4"
+	 f.puts "#$SENSEL4"
+	 f.puts "#$SENSE5"
+	 f.puts "#$SENSEL5"
+     f.puts "#$SENSE6"
+     f.puts "#$SENSEL6"
+     f.puts "#$SENSE7"
+     f.puts "#$SENSEL7"
+     f.puts "#$SENSE8"
+     f.puts "#$SENSEL8"
+ 	 f.puts "#$SENSE9"
+ 	 f.puts "#$SENSEL9"
+ 	 f.puts "#$SENSE10"
+ 	 f.puts "#$SENSEL10"
 	 f.puts "#$TRAIT1"
 	 f.puts "#$TRAIT2"
-	 f.puts "Perks:"
 	 f.puts "#$PERKS"
-	 f.puts "Other:"
-	 f.puts "Ability: #$ABILITY"
-	 f.puts "Skills: #$SKILLS"
-	 f.puts "Titles: #$TITLES"
+	 f.puts "#$ABILITY"
+	 f.puts "#$SKILLS"
+	 f.puts "#$TITLES"
 	 f.puts "#====================================="
     end
 	open('Information\EnemyOutputFancy.txt', "a+") do |f|
@@ -1495,9 +1531,11 @@ when "Monster"
 end
 when "Import"
    lines = Array.new
-   File.open('Information\CharacterImporter\CharacterImporter.txt').each { |line| lines << line }
+  puts "Who do you want to import?\n"  
+	file_name = gets.strip
+	path = "information/CharacterImporter/"
+   File.open((File.join(path,file_name))).each { |line| lines << line }
   print "Importing character from file....\n"  
-  
 	$NAME = lines[0].chomp
 	$SPECIES = lines[1].chomp
 	$CLASS = lines[2].chomp
@@ -1550,6 +1588,7 @@ when "Import"
    print "[View]\n"
    print "[Level Up]\n"
    print "[Export]\n"
+   print "[Import]\n"
    print "[End]\n"
       case gets().strip()
 	  when "View"
@@ -1594,9 +1633,11 @@ when "Import"
 	puts "Titles: #$TITLES"
       when "Import"
    lines = Array.new
-   File.open('Information\CharacterImporter\CharacterImporter.txt').each { |line| lines << line }
+  puts "Who do you want to import?\n"  
+	file_name = gets.strip
+	path = "information/CharacterImporter/"
+   File.open((File.join(path,file_name))).each { |line| lines << line }
   print "Importing character from file....\n"  
-  
 	$NAME = lines[0].chomp
 	$SPECIES = lines[1].chomp
 	$CLASS = lines[2].chomp
@@ -1650,9 +1691,14 @@ when "Import"
    print "[No]\n"
       case gets().strip()
 	  when "Yes"
+	  $LEVELOld = $LEVEL
+     while $i < $num  do  
 	  print "You are leveling up: #$NAME \n"
 	  print "Current Level: #$LEVEL \n"
 	  print "Which stat would you like to address first? \n"
+	  print "#$NAME 's Old HP is #$HPOld, the new HP is #$HP. \n" if $HPOld != 0
+	  print "[LEVEL] \n"
+	  print "[SENSES] \n"
 	  print "[HP] 'Rare'\n"
 	  print "[MR] \n"
 	  print "[PATK] \n"
@@ -1665,86 +1711,150 @@ when "Import"
 	  print "[CHAR] \n"
 	  print "[LUCK] \n"
 	  print "[SNEAK] \n"
-	  print "[SENSES] \n"
 	  case gets().strip()
+	  when "LEVEL"
+	   $LEVEL+=1
+	   print "<Experience has reached the required level. #$NAME has increased from Lv#$LEVELOld to LV#$LEVEL.>\n"
 	  when "HP"
+	   $HPOld = $HP
 	   print "#$NAME 's HP is #$HP. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $HP  = $MATK.to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "2"
-           $HP  = $MATK.to_i + rand(1..7)
+		   $INCREASE = rand(1..7)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "3"
-           $HP  = $MATK.to_i + rand(2..10)
+		   $INCREASE = rand(2..10)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "4"
-           $HP  = $MATK.to_i + rand(3..13)
+		   $INCREASE = rand(3..13)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "5"
-           $HP  = $MATK.to_i + rand(4..15)
+		   $INCREASE = rand(4..15)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "6"
-           $HP  = $MATK.to_i + rand(5..16)
+		   $INCREASE = rand(5..16)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "7"
-           $HP  = $MATK.to_i + rand(6..17)
+		   $INCREASE = rand(6..17)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "8"
-           $HP  = $MATK.to_i + rand(7..18)
+		   $INCREASE = rand(7..18)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "9"
-           $HP  = $MATK.to_i + rand(8..19)
+		   $INCREASE = rand(8..19)
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	     when "10"
-           $HP  = $MATK.to_i + rand(9..20) 
+		   $INCREASE = rand(9..20) 
+           $HP  = $HP.to_i + $INCREASE.to_i
+	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
 	  end
 	  when "MR"
+	   $MROld = $MR
 	   print "#$NAME 's MR is #$MR. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $MR  = $MR.to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "2"
-           $MR  = $MR.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "3"
-           $MR  = $MR.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "4"
-           $MR  = $MR.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "5"
-           $MR  = $MR.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "6"
-           $MR  = $MR.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "7"
-           $MR  = $MR.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "8"
-           $MR  = $MR.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "9"
-           $MR  = $MR.to_i + rand(8..19)
+           $INCREASE = rand(8..19)
+           $MR  = $MR.to_i+ $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	     when "10" 
-           $MR  = $MR.to_i + rand(9..20).to_i
+           $INCREASE = $INCREASE.to_i
+	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
 	  end
-	   print "#$NAME 's MR is #$MR. \n"
+	   print "#$NAME 's MR is now #$MR. \n"
 	  when "PATK"
+	   $PATKOld = $PATK
 	   print "#$NAME 's PATK is #$PATK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $PATK = $PATK.to_i + rand(0..5)
+           $INCREASE = rand(0..5)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "2"
-           $PATK = $PATK.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "3"
-           $PATK = $PATK.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "4"
-           $PATK = $PATK.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "5"
-           $PATK = $PATK.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "6"
-           $PATK = $PATK.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "7"
-           $PATK = $PATK.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "8"
-           $PATK = $PATK.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "9"
-           $PATK = $PATK.to_i + rand(8..19)
+           $INCREASE = rand(8..19)
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	     when "10"
-           $PATK = $PATK.to_i + rand(9..20) 
+           $INCREASE = rand(9..20) 
+           $PATK  = $PATK.to_i+ $INCREASE.to_i
+	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
 	  end
 	   print "#$NAME 's PATK is #$PATK. \n"
 	  when "MATK"
@@ -1753,244 +1863,436 @@ when "Import"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $MATK = $MATK.to_i + rand(0..5)
+           $INCREASE = rand(0..5)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "2"
-           $MATK = $MATK.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "3"
-           $MATK = $MATK.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "4"
-           $MATK = $MATK.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "5"
-           $MATK = $MATK.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "6"
-           $MATK = $MATK.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "7"
-           $MATK = $MATK.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "8"
-           $MATK = $MATK.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "9"
-           $MATK = $MATK.to_i + rand(8..19)
+           $INCREASE = rand(8..19)
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	     when "10"
-           $MATK = $MATK.to_i + rand(9..20) 
+           $INCREASE = rand(9..20) 
+           $MATK  = $MATK.to_i+ $INCREASE.to_i
+	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
 	  end
 	   print "#$NAME 's MATK is #$MATK. \n"
 	  when "ACC"
+	   $ACCOld = $ACC
 	   print "#$NAME 's ACC is #$ACC. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $ACC  = $ACC.to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "2"
-           $ACC  = $ACC.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "3"
-           $ACC  = $ACC.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "4"
-           $ACC  = $ACC.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "5"
-           $ACC  = $ACC.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "6"
-           $ACC  = $ACC.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "7"
-           $ACC  = $ACC.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "8"
-           $ACC  = $ACC.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	     when "9"
-           $ACC  = $ACC.to_i + rand(8..19)
-	     when "10"
-           $ACC  = $ACC.to_i + rand(9..20) 
+           $INCREASE = rand(8..19)
+           $ACC  = $ACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
 	  end
 	   print "#$NAME 's ACC is #$ACC. \n"
 	  when "DEX"
+	   $DEXOld = $DEX
 	   print "#$NAME 's DEX is #$DEX. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $DEX  = $DEX.to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "2"
-           $DEX  = $DEX.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "3"
-           $DEX  = $DEX.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "4"
-           $DEX  = $DEX.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "5"
-           $DEX  = $DEX.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "6"
-           $DEX  = $DEX.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "7"
-           $DEX  = $DEX.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "8"
-           $DEX  = $DEX.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	     when "9"
-           $DEX  = $DEX.to_i + rand(8..19)
-	     when "10"
-           $DEX  = $DEX.to_i + rand(9..20) 
+           $INCREASE = rand(8..19)
+           $DEX  = $DEX.to_i+ $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
 	  end
 	   print "#$NAME 's DEX is #$DEX. \n"
 	  when "BLK"
+	   $BLKOld = $BLK
 	   print "#$NAME 's BLK is #$BLK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $BLK  = $BLK.to_i + rand(10..5)
+		   $INCREASE = rand(0..5)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "2"
-           $BLK  = $BLK.to_i + rand(11..7)
+           $INCREASE = rand(1..7)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "3"
-           $BLK  = $BLK.to_i + rand(10..20)
+           $INCREASE = rand(2..10)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "4"
-           $BLK  = $BLK.to_i + rand(20..30)
+           $INCREASE = rand(3..13)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "5"
-           $BLK  = $BLK.to_i + rand(25..35)
+           $INCREASE = rand(4..15)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "6"
-           $BLK  = $BLK.to_i + rand(30..45)
+           $INCREASE = rand(5..16)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "7"
-           $BLK  = $BLK.to_i + rand(35..50)
+           $INCREASE = rand(6..17)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "8"
-           $BLK  = $BLK.to_i + rand(40..55)
+           $INCREASE = rand(7..18)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	     when "9"
-           $BLK  = $BLK.to_i + rand(45..60)
-	     when "10"
-           $BLK  = $BLK.to_i + rand(50..75) 
+           $INCREASE = rand(8..19)
+           $BLK  = $BLK.to_i+ $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
 	  end
 	   print "#$NAME 's BLK is #$BLK. \n"
 	  when "DOD"
+	   $DODOld = $DOD
 	   print "#$NAME 's DOD is #$DOD. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $DOD  = $DOD.to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "2"
-           $DOD  = $DOD.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "3"
-           $DOD  = $DOD.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "4"
-           $DOD  = $DOD.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "5"
-           $DOD  = $DOD.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "6"
-           $DOD  = $DOD.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "7"
-           $DOD  = $DOD.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "8"
-           $DOD  = $DOD.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	     when "9"
-           $DOD  = $DOD.to_i + rand(8..19)
-	     when "10"
-           $DOD  = $DOD.to_i + rand(9..20) 
+           $INCREASE = rand(8..19)
+           $DOD  = $DOD.to_i+ $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
 	  end
 	   print "#$NAME 's DOD is #$DOD. \n"
 	  when "PER"
+	   $PEROld = $PER
 	   print "#$NAME 's PER is #$PER. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $PER  = $PER.to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "2"
-           $PER  = $PER.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "3"
-           $PER  = $PER.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "4"
-           $PER  = $PER.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "5"
-           $PER  = $PER.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "6"
-           $PER  = $PER.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "7"
-           $PER  = $PER.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "8"
-           $PER  = $PER.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	     when "9"
-           $PER  = $PER.to_i + rand(8..19)
-	     when "10"
-           $PER  = $PER.to_i + rand(9..20) 
+           $INCREASE = rand(8..19)
+           $PER  = $PER.to_i+ $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
 	  end
 	   print "#$NAME 's PER is #$PER. \n"
 	  when "CHAR"
+	   $CHAR2Old = $CHAR2
 	   print "#$NAME 's CHAR2 is #$CHAR2. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $CHAR2  = $CHAR2.to_i + rand(0..1)
+		   $INCREASE = rand(0..5)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "2"
-           $CHAR2  = $CHAR2.to_i + rand(1..1)
+           $INCREASE = rand(1..7)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "3"
-           $CHAR2  = $CHAR2.to_i + rand(1..2)
+           $INCREASE = rand(2..10)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "4"
-           $CHAR2  = $CHAR2.to_i + rand(1..2)
+           $INCREASE = rand(3..13)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "5"
-           $CHAR2  = $CHAR2.to_i + rand(1..3)
+           $INCREASE = rand(4..15)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "6"
-           $CHAR2  = $CHAR2.to_i + rand(2..3)
+           $INCREASE = rand(5..16)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "7"
-           $CHAR2  = $CHAR2.to_i + rand(2..3)
+           $INCREASE = rand(6..17)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "8"
-           $CHAR2  = $CHAR2.to_i + rand(2..4)
+           $INCREASE = rand(7..18)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "9"
-           $CHAR2  = $CHAR2.to_i + rand(3..4)
-	     when "10"
-           $CHAR2  = $CHAR2.to_i + rand(3..5)
+           $INCREASE = rand(8..19)
+           $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	  end
 	   print "#$NAME 's CHAR2 is #$CHAR2. \n"
 	  when "LUCK"
+	   $LUCKOld = $LUCK
 	   print "#$NAME 's LUCK is #$LUCK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
+	   print "or type [Back] to go back."
 	   case gets().strip()
 	     when "1"
-           $LUCK  = $LUCK.to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "2"
-           $LUCK  = $LUCK.to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "3"
-           $LUCK  = $LUCK.to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "4"
-           $LUCK  = $LUCK.to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "5"
-           $LUCK  = $LUCK.to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "6"
-           $LUCK  = $LUCK.to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "7"
-           $LUCK  = $LUCK.to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "8"
-           $LUCK  = $LUCK.to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
 	     when "9"
-           $LUCK  = $LUCK.to_i + rand(8..19)
-	     when "10"
-           $LUCK  = $LUCK.to_i + rand(9..20) 
+           $INCREASE = rand(8..19)
+           $LUCK  = $LUCK.to_i+ $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	     when "Back" 
 	  end
 	   print "#$NAME 's LUCK is #$LUCK. \n"
 	  when "SNEAK"
+	   $SNEAKOld = $SNEAK
 	   print "#$NAME 's SNEAK is #$SNEAK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "Put in Approprate Number..\n"
 	   case gets().strip()
 	     when "1"
-           $SNEAK  = $SNEAK  .to_i + rand(0..5)
+		   $INCREASE = rand(0..5)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "2"
-           $SNEAK  = $SNEAK  .to_i + rand(1..7)
+           $INCREASE = rand(1..7)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "3"
-           $SNEAK  = $SNEAK  .to_i + rand(2..10)
+           $INCREASE = rand(2..10)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "4"
-           $SNEAK  = $SNEAK  .to_i + rand(3..13)
+           $INCREASE = rand(3..13)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "5"
-           $SNEAK  = $SNEAK  .to_i + rand(4..15)
+           $INCREASE = rand(4..15)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "6"
-           $SNEAK  = $SNEAK  .to_i + rand(5..16)
+           $INCREASE = rand(5..16)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "7"
-           $SNEAK  = $SNEAK  .to_i + rand(6..17)
+           $INCREASE = rand(6..17)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "8"
-           $SNEAK  = $SNEAK  .to_i + rand(7..18)
+           $INCREASE = rand(7..18)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	     when "9"
-           $SNEAK  = $SNEAK  .to_i + rand(8..19)
-	     when "10"
-           $SNEAK  = $SNEAK  .to_i + rand(9..20) 
+           $INCREASE = rand(8..19)
+           $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
 	  end
 	   print "#$NAME 's SNEAK is #$SNEAK. \n"
 	  when "SENSES"
+	   $SENSEL1Old = $SENSEL1
+	   $SENSEL2Old = $SENSEL2
+	   $SENSEL3Old = $SENSEL3
+	   $SENSEL4Old = $SENSEL4
+	   $SENSEL5Old = $SENSEL5
+	   $SENSEL6Old = $SENSEL6
+	   $SENSEL7Old = $SENSEL7
+	   $SENSEL8Old = $SENSEL8
+	   $SENSEL9Old = $SENSEL9
+	   $SENSEL10Old = $SENSEL10
 	   print "#$NAME 's Senses are: \n"
 	   print "[1].)#$SENSE1 \n"
 	   print "[2].)#$SENSE2 \n"
@@ -2002,6 +2304,7 @@ when "Import"
 	   print "[8].)#$SENSE8 \n"
 	   print "[9].)#$SENSE9 \n"
 	   print "[10].)#$SENSE10 \n"
+	   print "<Proficiency has reached the required level.>"
 	   case gets().strip()
 	     when "1"
 	        print "#$SENSE1's level is #$SENSEL1 \n"
@@ -2009,25 +2312,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL1  = $SENSEL1.to_i + 1
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL1  = $SENSEL1.to_i + 2
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL1  = $SENSEL1.to_i + 3
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL1  = $SENSEL1.to_i + 4
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL1  = $SENSEL1.to_i + 5
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL1  = $SENSEL1.to_i + 6
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL1  = $SENSEL1.to_i + 7
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL1  = $SENSEL1.to_i + 8
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL1  = $SENSEL1.to_i + 9
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL1  = $SENSEL1.to_i + 10
+	       print "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	  end
 	        print "#$SENSE1's level is #$SENSEL1 \n"
 	     when "2"
@@ -2036,25 +2359,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL2  = $SENSEL2.to_i + 1
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL2  = $SENSEL2.to_i + 2
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL2  = $SENSEL2.to_i + 3
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL2  = $SENSEL2.to_i + 4
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL2  = $SENSEL2.to_i + 5
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL2  = $SENSEL2.to_i + 6
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL2  = $SENSEL2.to_i + 7
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL2  = $SENSEL2.to_i + 8
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL2  = $SENSEL2.to_i + 9
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL2  = $SENSEL2.to_i + 10
+	       print "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	  end
 	        print "#$SENSE2's level is #$SENSEL2 \n"
 	     when "3"
@@ -2063,25 +2406,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL3  = $SENSEL3.to_i + 1
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL3  = $SENSEL3.to_i + 2
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL3  = $SENSEL3.to_i + 3
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL3  = $SENSEL3.to_i + 4
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL3  = $SENSEL3.to_i + 5
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL3  = $SENSEL3.to_i + 6
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL3  = $SENSEL3.to_i + 7
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL3  = $SENSEL3.to_i + 8
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL3  = $SENSEL3.to_i + 9
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL3  = $SENSEL3.to_i + 10
+	       print "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	  end
 	        print "#$SENSE3's level is #$SENSEL3 \n"
 	     when "4"
@@ -2090,25 +2453,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL4  = $SENSEL4.to_i + 1
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL4  = $SENSEL4.to_i + 2
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL4  = $SENSEL4.to_i + 3
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL4  = $SENSEL4.to_i + 4
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL4  = $SENSEL4.to_i + 5
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL4  = $SENSEL4.to_i + 6
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL4  = $SENSEL4.to_i + 7
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL4  = $SENSEL4.to_i + 8
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL4  = $SENSEL4.to_i + 9
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL4  = $SENSEL4.to_i + 10
+	       print "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	  end
 	        print "#$SENSE4's level is #$SENSEL4 \n"
 	     when "5"
@@ -2117,25 +2500,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL5  = $SENSEL5.to_i + 1
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL5  = $SENSEL5.to_i + 2
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL5  = $SENSEL5.to_i + 3
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL5  = $SENSEL5.to_i + 4
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL5  = $SENSEL5.to_i + 5
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL5  = $SENSEL5.to_i + 6
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL5  = $SENSEL5.to_i + 7
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL5  = $SENSEL5.to_i + 8
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL5  = $SENSEL5.to_i + 9
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL5  = $SENSEL5.to_i + 10
+	       print "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	  end
 	        print "#$SENSE5's level is #$SENSEL5 \n"
 	     when "6"
@@ -2144,25 +2547,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL6  = $SENSEL6.to_i + 1
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL6  = $SENSEL6.to_i + 2
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL6  = $SENSEL6.to_i + 3
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL6  = $SENSEL6.to_i + 4
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL6  = $SENSEL6.to_i + 5
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL6  = $SENSEL6.to_i + 6
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL6  = $SENSEL6.to_i + 7
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL6  = $SENSEL6.to_i + 8
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL6  = $SENSEL6.to_i + 9
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL6  = $SENSEL6.to_i + 10
+	       print "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	  end
 	        print "#$SENSE6's level is #$SENSEL6 \n"
 	     when "7"
@@ -2171,25 +2594,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL7  = $SENSEL7.to_i + 1
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL7  = $SENSEL7.to_i + 2
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL7  = $SENSEL7.to_i + 3
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL7  = $SENSEL7.to_i + 4
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL7  = $SENSEL7.to_i + 5
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL7  = $SENSEL7.to_i + 6
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL7  = $SENSEL7.to_i + 7
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL7  = $SENSEL7.to_i + 8
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL7  = $SENSEL7.to_i + 9
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL7  = $SENSEL7.to_i + 10
+	       print "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	  end
 	        print "#$SENSE7's level is #$SENSEL7 \n"
 	     when "8"
@@ -2198,25 +2641,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL8  = $SENSEL8.to_i + 1
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL8  = $SENSEL8.to_i + 2
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL8  = $SENSEL8.to_i + 3
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL8  = $SENSEL8.to_i + 4
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL8  = $SENSEL8.to_i + 5
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL8  = $SENSEL8.to_i + 6
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL8  = $SENSEL8.to_i + 7
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL8  = $SENSEL8.to_i + 8
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL8  = $SENSEL8.to_i + 9
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL8  = $SENSEL8.to_i + 10
+	       print "<#$SENSE3 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	  end
 	        print "#$SENSE8's level is #$SENSEL8 \n"
 	     when "9"
@@ -2225,25 +2688,45 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL9  = $SENSEL9.to_i + 1
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL9  = $SENSEL9.to_i + 2
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL9  = $SENSEL9.to_i + 3
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL9  = $SENSEL9.to_i + 4
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL9  = $SENSEL9.to_i + 5
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL9  = $SENSEL9.to_i + 6
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL9  = $SENSEL9.to_i + 7
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL9  = $SENSEL9.to_i + 8
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL9  = $SENSEL9.to_i + 9
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL9  = $SENSEL9.to_i + 10
+	       print "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	  end
 	        print "#$SENSE9's level is #$SENSEL9 \n"
 	     when "10"
@@ -2252,33 +2735,57 @@ when "Import"
 	        print "[1]...[10]\n"
 	   case gets().strip()
 	     when "1"
+		   $INCREASE = 1
            $SENSEL10  = $SENSEL10.to_i + 1
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "2"
+		   $INCREASE = 2
            $SENSEL10  = $SENSEL10.to_i + 2
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "3"
+		   $INCREASE = 3
            $SENSEL10  = $SENSEL10.to_i + 3
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "4"
+		   $INCREASE = 4
            $SENSEL10  = $SENSEL10.to_i + 4
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "5"
+		   $INCREASE = 5
            $SENSEL10  = $SENSEL10.to_i + 5
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "6"
+		   $INCREASE = 6
            $SENSEL10  = $SENSEL10.to_i + 6
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "7"
+		   $INCREASE = 7
            $SENSEL10  = $SENSEL10.to_i + 7
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "8"
+		   $INCREASE = 8
            $SENSEL10  = $SENSEL10.to_i + 8
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "9"
+		   $INCREASE = 9
            $SENSEL10  = $SENSEL10.to_i + 9
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	     when "10"
+		   $INCREASE = 10
            $SENSEL10  = $SENSEL10.to_i + 10
+	       print "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	  end
 	        print "#$SENSE10's level is #$SENSEL10 \n"
+	  end
 	  end
 	  end
 	  when "No"
 	  end
 	  when "Export"
-	open('Information\CharacterExporter.txt', "a+") do |f|
+	puts "What would you like to name the output file?"
+	file_name = gets.strip
+	path = "information/CharacterImporter/"
+	open((File.join(path,file_name)),"a+") do |f|
 	 f.puts "#$NAME"
 	 f.puts "#$SPECIES"
 	 f.puts "#$CLASS"
