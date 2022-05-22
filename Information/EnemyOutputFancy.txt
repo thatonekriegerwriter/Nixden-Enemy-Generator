@@ -1,0 +1,66 @@
+Name: Steven
+Species: Human
+Class: Ranger
+Level: 8
+HP: 60
+MR: 128
+PATK: 98
+MATK: 102
+DEX: 137
+ACC: 154
+BLK: 95
+DOD: 143
+PER: 150
+CHAR: 110
+LUCK: 120
+SNEAK: 113
+MOVE: 7
+STA: 12
+TO: 2
+#=====================================
+Name: Kaput
+Species: Terran
+Class: Knight
+Level: 7
+HP: 120
+MR: 46
+PATK: 104
+MATK: 41
+DEX: 59
+ACC: 102
+BLK: 88
+DOD: 77
+PER: 56
+CHAR: 25
+LUCK: 45
+SNEAK: 47
+MOVE: 5
+STA: 7
+TO: 5
+Senses:
+Sword 1
+Armor 1
+Shieldbearer 1
+Magic Power 1
+Wind Element Talent
+ 1
+Poopy Doopus
+ 
+Ping Pong Poop
+ 1
+Derpy Derp
+ 1
+Orange Banana
+ 1
+Death to Potatos
+ 1
+Traits:
+Hotblooded (Check it and see)
+Ive got a fever of 100 Degrees
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================

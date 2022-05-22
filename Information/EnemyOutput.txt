@@ -1,76 +1,68 @@
-Mira
+Steven
 Human
-Sage
-20
+Ranger
+8
 60
-293
-12
-276
-240
-240
-228
-216
-234
-236
-231
-227
-232
-5
-#=====================================
-Mira
-Human
-Summoner
-9
-80
-145
-12
-120
-117
-122
-137
-111
-118
-134
-122
-126
-117
-4
-#=====================================
-Mira
-Human
-Summoner
-9
-80
-148
-12
-56
-65
-57
-52
-39
-66
-65
-25
-57
-44
-4
-#=====================================
-Monster
-Summoner
-9
-188
+128
 98
-7
-91
-95
-105
 102
-108
-109
+137
+154
+95
+143
+150
 110
-100
-100
-110
+120
+113
+7
+12
+2
+#=====================================
+Kaput
+Terran
+Knight
+7
+120
+46
+104
+41
+59
+102
+88
+77
+56
+25
+45
+47
 5
-0
+7
+5
+Senses:
+Sword 1
+Armor 1
+Shieldbearer 1
+Magic Power 1
+Wind Element Talent
+ 1
+Poopy Doopus
+ 
+Ping Pong Poop
+ 1
+Derpy Derp
+ 1
+Orange Banana
+ 1
+Death to Potatos
+ 1
+Death to Potatos
+ 1
+Traits:
+Hotblooded (Check it and see)
+Ive got a fever of 100 Degrees
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
 #=====================================
