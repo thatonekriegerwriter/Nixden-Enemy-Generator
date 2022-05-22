@@ -296,15 +296,15 @@ when "Generate"
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = 0
+    $SENSE6 = "None"
     $SENSEL6 = 1
-    $SENSE7 = 0
+    $SENSE7 = "None"
     $SENSEL7 = 1
-    $SENSE8 = 0
+    $SENSE8 = "None"
     $SENSEL8 = 1
-    $SENSE9 = 0
+    $SENSE9 = "None"
     $SENSEL9 = 1
-    $SENSE10 = 0
+    $SENSE10 = "None"
     $SENSEL10 = 1
     when "Archer"
 	$CLASS = "Archer"
@@ -335,39 +335,39 @@ when "Generate"
     $TO = 4
     $SENSE1 = "Bow"
     $SENSEL1 = 1
-    $SENSE2 = 0
+    $SENSE2 = "None"
     $SENSEL2 = 1
     $SENSE3 = "Magic Power"
     $SENSEL3 = 1
     $SENSE4 = 0
     $SENSEL4 = 1
-	if rand(9)==1
+	if rand(8)==0
     $SENSE5 = "Fire Element Talent"
-	elsif rand(9)==2
+	elsif rand(8)==1
     $SENSE5 = "Water Element Talent"
-	elsif rand(9)==3
+	elsif rand(8)==2
     $SENSE5 = "Wind Element Talent"
-	elsif rand(9)==4
+	elsif rand(8)==3
     $SENSE5 = "Earth Element Talent"
-	elsif rand(9)==5
+	elsif rand(8)==4
     $SENSE5 = "Darkness Element Talent"
-	elsif rand(9)==6
+	elsif rand(8)==5
     $SENSE5 = "Light Element Talent"
-	elsif rand(9)==7
+	elsif rand(8)==6
     $SENSE5 = "Neutral Element Talent"
-	elsif rand(9)==8
+	elsif rand(8)==7
     $SENSE5 = "Holy Element Talent"
 	end
     $SENSEL5 = 1
-    $SENSE6 = 0
+    $SENSE6 = "None"
     $SENSEL6 = 1
-    $SENSE7 = 0
+    $SENSE7 = "None"
     $SENSEL7 = 1
-    $SENSE8 = 0
+    $SENSE8 = "None"
     $SENSEL8 = 1
-    $SENSE9 = 0
+    $SENSE9 = "None"
     $SENSEL9 = 1
-    $SENSE10 = 0
+    $SENSE10 = "None"
     $SENSEL10 = 1
     when "Barbarian"
 	$CLASS = "Barbarian"
@@ -396,6 +396,46 @@ when "Generate"
     $SNEAK += 20
     $MOVE = 4
     $TO = 6
+	if rand(1)==1
+    $SENSE1 = "Whip"
+	elsif rand(1)==0
+    $SENSE1 = "Axe"
+	end
+    $SENSEL1 = 1
+    $SENSE2 = "Pain Resistance"
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "White Mage"
 	$CLASS = "White Mage"
     $MR += (6*$LEVEL.to_i) + rand(10..90)   
@@ -423,6 +463,26 @@ when "Generate"
     $STA += 6
     $MOVE = 4
     $TO = 8
+    $SENSE1 = "Wand"
+    $SENSEL1 = 1
+    $SENSE2 = "Magic Talent"
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = "Recovery Arts"
+    $SENSEL4 = 1
+    $SENSE5 = "None"
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Black Mage"
 	$CLASS = "Black Mage"
     $MR += (4*$LEVEL.to_i) + rand(10..30)   
@@ -450,6 +510,58 @@ when "Generate"
     $STA += 6
     $MOVE = 4
     $TO = 8
+    $SENSE1 = "Wand"
+    $SENSEL1 = 1
+    $SENSE2 = "Magic Talent"
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+	if rand(8)==0
+    $SENSE4 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE4 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE4 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE4 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE4 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE4 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE4 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE4 = "Holy Element Talent"
+	end
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Fighter"
 	$CLASS = "Fighter"
     $MR += (2*$LEVEL.to_i) + rand(1..10)   
@@ -477,6 +589,48 @@ when "Generate"
     $STA += 8
     $MOVE = 3
     $TO = 10
+	if rand(8)==0
+    $SENSE1 = "Two-Handed Sword"
+	elsif rand(8)==1
+    $SENSE1 = "Axes"
+	elsif rand(8)==2
+    $SENSE1 = "Unarmed"
+	end
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = 0
+    $SENSEL6 = 1
+    $SENSE7 = 0
+    $SENSEL7 = 1
+    $SENSE8 = 0
+    $SENSEL8 = 1
+    $SENSE9 = 0
+    $SENSEL9 = 1
+    $SENSE10 = 0
+    $SENSEL10 = 1
     when "Pugilist"
 	$CLASS = "Pugilist"
     $MR += (3*$LEVEL.to_i) + rand(1..10)   
@@ -504,6 +658,50 @@ when "Generate"
     $STA += 6
     $MOVE = 7
     $TO = 4
+	if rand(4)==0
+    $SENSE1 = "Unarmed"
+	elsif rand(4)==1
+    $SENSE1 = "Claws"
+	elsif rand(4)==2
+    $SENSE1 = "Knuckles"
+	elsif rand(4)==3
+    $SENSE1 = "Sticks"
+	end
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Bard" 
 	$CLASS = "Bard"
     $MR += (6*$LEVEL.to_i) + rand(1..30)   
@@ -531,6 +729,42 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 5
+    $SENSE1 = "Lance"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
 	when "Songstress"
 	$CLASS = "Songstress"
     $MR += (6*$LEVEL.to_i) + rand(1..30)   
@@ -558,6 +792,42 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 5
+    $SENSE1 = "Lance"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Dancer"
 	$CLASS = "Dancer"
     $MR += (7*$LEVEL.to_i) + rand(1..30)   
@@ -585,6 +855,42 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 5
+    $SENSE1 = "Stick"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Fencer"
 	$CLASS = "Fencer"
     $MR += (2*$LEVEL.to_i) + rand(1..20)   
@@ -612,6 +918,42 @@ when "Generate"
     $STA += 5
     $MOVE = 5
     $TO = 2
+    $SENSE1 = "Rapier"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Paladin"
 	$CLASS = "Paladin"
     $MR += (3*$LEVEL.to_i) + rand(1..20)   
@@ -639,6 +981,42 @@ when "Generate"
     $STA += 9
     $MOVE = 4
     $TO = 7
+    $SENSE1 = "Longsword"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Illusionist"
 	$CLASS = "Illusionist"
     $MR += (7*$LEVEL.to_i) + rand(1..20)   
@@ -666,6 +1044,42 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 8
+    $SENSE1 = "Staff"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Time Mage"
 	$CLASS = "Time Mage"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -694,6 +1108,42 @@ when "Generate"
     $STA += 5
     $MOVE = 5
     $TO = 5
+    $SENSE1 = "Rod"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Red Mage"
 	$CLASS = "Red Mage"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -722,6 +1172,42 @@ when "Generate"
     $STA += 5
     $MOVE = 6
     $TO = 3
+    $SENSE1 = "Rapier"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Hunter"
 	$CLASS = "Hunter"
     $MR += (4*$LEVEL.to_i) + rand(1..20)   
@@ -749,6 +1235,42 @@ when "Generate"
     $STA += 5
     $MOVE = 5
     $TO = 6
+    $SENSE1 = "Longbow"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Assassin"
 	$CLASS = "Assassin"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -777,6 +1299,42 @@ when "Generate"
     $STA += 4
     $MOVE = 6
     $TO = 3
+    $SENSE1 = "Katana"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Blue Mage"
 	$CLASS = "Blue Mage"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -805,6 +1363,42 @@ when "Generate"
     $STA += 6
     $MOVE = 4
     $TO = 8
+    $SENSE1 = "Saber"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Gunner"
 	$CLASS = "Gunner"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -833,6 +1427,42 @@ when "Generate"
     $STA += 6
     $MOVE = 6
     $TO = 4
+    $SENSE1 = "Guns"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Juggler"
 	$CLASS = "Juggler"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -861,6 +1491,42 @@ when "Generate"
     $MOVE = 6
     $STA += 5
     $TO = 4
+    $SENSE1 = "Knife"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Spellsword"
 	$CLASS = "Spellsword"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -889,6 +1555,42 @@ when "Generate"
     $MOVE = 5
     $STA += 8
     $TO = 6
+    $SENSE1 = "Sword"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Beastmaster"
 	$CLASS = "Beastmaster"
     $MR += (7*$LEVEL.to_i) + rand(1..20)   
@@ -916,6 +1618,42 @@ when "Generate"
     $MOVE = 4
     $STA += 4
     $TO = 4
+    $SENSE1 = "Whip"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Summoner"
 	$CLASS = "Summoner"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -943,6 +1681,42 @@ when "Generate"
     $MOVE = 4
     $STA += 5
     $TO = 5
+    $SENSE1 = "Staff"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Gadgeteer"
 	$CLASS = "Gadgeteer"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -971,6 +1745,42 @@ when "Generate"
     $MOVE = 4
     $STA += 6
     $TO = 5
+    $SENSE1 = "Unarmed"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Ranger"
 	$CLASS = "Ranger"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -999,6 +1809,42 @@ when "Generate"
     $MOVE = 7
     $STA += 5
     $TO = 2
+    $SENSE1 = "Daggers"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Parivir"
 	$CLASS = "Parivir"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1027,6 +1873,42 @@ when "Generate"
     $MOVE = 4
     $STA += 7
     $TO = 6
+    $SENSE1 = "Sword"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Seer"
 	$CLASS = "Seer"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1055,6 +1937,42 @@ when "Generate"
     $MOVE = 4
     $STA += 7
     $TO = 7
+    $SENSE1 = "TOME"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Heritor"
 	$CLASS = "Heritor"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1083,6 +2001,42 @@ when "Generate"
     $MOVE = 5
     $STA += 7
     $TO = 8
+    $SENSE1 = "Dagger"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Green Mage"
 	$CLASS = "Green Mage"
     $MR += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1111,6 +2065,42 @@ when "Generate"
     $MOVE = 4
     $STA += 7
     $TO = 5
+    $SENSE1 = "Swords"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
     when "Sage"
 	$CLASS = "Sage"
     $MR += (10*$LEVEL.to_i) + rand(1..50)   
@@ -1138,6 +2128,42 @@ when "Generate"
     $STA += 5
     $MOVE = 5
     $TO = 8
+    $SENSE1 = "Unarmed"
+    $SENSEL1 = 1
+    $SENSE2 = 0
+    $SENSEL2 = 1
+    $SENSE3 = "Magic Power"
+    $SENSEL3 = 1
+    $SENSE4 = 0
+    $SENSEL4 = 1
+	if rand(8)==0
+    $SENSE5 = "Fire Element Talent"
+	elsif rand(8)==1
+    $SENSE5 = "Water Element Talent"
+	elsif rand(8)==2
+    $SENSE5 = "Wind Element Talent"
+	elsif rand(8)==3
+    $SENSE5 = "Earth Element Talent"
+	elsif rand(8)==4
+    $SENSE5 = "Darkness Element Talent"
+	elsif rand(8)==5
+    $SENSE5 = "Light Element Talent"
+	elsif rand(8)==6
+    $SENSE5 = "Neutral Element Talent"
+	elsif rand(8)==7
+    $SENSE5 = "Holy Element Talent"
+	end
+    $SENSEL5 = 1
+    $SENSE6 = "None"
+    $SENSEL6 = 1
+    $SENSE7 = "None"
+    $SENSEL7 = 1
+    $SENSE8 = "None"
+    $SENSEL8 = 1
+    $SENSE9 = "None"
+    $SENSEL9 = 1
+    $SENSE10 = "None"
+    $SENSEL10 = 1
 	else
 	print "Error. \n"
     break
@@ -1696,6 +2722,7 @@ when "Import"
 	  print "You are leveling up: #$NAME \n"
 	  print "Current Level: #$LEVEL \n"
 	  print "Which stat would you like to address first? \n"
+	  print "#$NAME 's Old Level is #$LEVELOld, the new Level is #$LEVEL. \n" if $HPOld != 0
 	  print "#$NAME 's Old HP is #$HPOld, the new HP is #$HP. \n" if $HPOld != 0
 	  print "[LEVEL] \n"
 	  print "[SENSES] \n"
@@ -1713,7 +2740,7 @@ when "Import"
 	  print "[SNEAK] \n"
 	  case gets().strip()
 	  when "LEVEL"
-	   $LEVEL+=1
+	   $LEVEL= $LEVEL.to_i + 1
 	   print "<Experience has reached the required level. #$NAME has increased from Lv#$LEVELOld to LV#$LEVEL.>\n"
 	  when "HP"
 	   $HPOld = $HP
