@@ -2926,7 +2926,7 @@ when "Import"
 	   $HPOld = $HP
 	   print "#$NAME 's HP is #$HP. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -2975,7 +2975,7 @@ when "Import"
 	   $MROld = $MR
 	   print "#$NAME 's MR is #$MR. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3024,7 +3024,7 @@ when "Import"
 	   $PATKOld = $PATK
 	   print "#$NAME 's PATK is #$PATK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3073,7 +3073,7 @@ when "Import"
 	  when "MATK"
 	   print "#$NAME 's MATK is #$MATK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3123,7 +3123,7 @@ when "Import"
 	   $ACCOld = $ACC
 	   print "#$NAME 's ACC is #$ACC. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3172,7 +3172,7 @@ when "Import"
 	   $DEXOld = $DEX
 	   print "#$NAME 's DEX is #$DEX. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3221,7 +3221,7 @@ when "Import"
 	   $BLKOld = $BLK
 	   print "#$NAME 's BLK is #$BLK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3270,7 +3270,7 @@ when "Import"
 	   $DODOld = $DOD
 	   print "#$NAME 's DOD is #$DOD. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3319,7 +3319,7 @@ when "Import"
 	   $PEROld = $PER
 	   print "#$NAME 's PER is #$PER. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3368,7 +3368,7 @@ when "Import"
 	   $CHAR2Old = $CHAR2
 	   print "#$NAME 's CHAR2 is #$CHAR2. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
@@ -3417,7 +3417,7 @@ when "Import"
 	   $LUCKOld = $LUCK
 	   print "#$NAME 's LUCK is #$LUCK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   print "or type [Back] to go back."
 	   case gets().strip()
 	  when "clear"
@@ -3468,7 +3468,7 @@ when "Import"
 	   $SNEAKOld = $SNEAK
 	   print "#$NAME 's SNEAK is #$SNEAK. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
-	   print "puts in Approprate Number..\n"
+	   print "put in Approprate Number..\n"
 	   case gets().strip()
 	  when "clear"
 	  Screen.clear
