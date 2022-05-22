@@ -104,7 +104,6 @@ print "Are you sure you want to clear output? \n"
   print "Clearing output...\n"  
 	File.truncate('Information\EnemyOutput.txt',0)
 	File.truncate('Information\EnemyOutputFancy.txt',0)
-	File.open('Information\CharacterExporter.txt',0)
   when "No"
  end
 when "Generate"
@@ -2639,6 +2638,7 @@ when "Import"
 	$SPECIES = lines[1].chomp
 	$CLASS = lines[2].chomp
 	$LEVEL = lines[3].chomp
+	$LEVELOld = $LEVEL 
     $HP = lines[4].chomp
     $MR = lines[5].chomp
     $STA = lines[6].chomp
@@ -2743,6 +2743,7 @@ when "Import"
 	$SPECIES = lines[1].chomp
 	$CLASS = lines[2].chomp
 	$LEVEL = lines[3].chomp
+	$LEVELOld = $LEVEL 
     $HP = lines[4].chomp
     $MR = lines[5].chomp
     $STA = lines[6].chomp
@@ -3988,10 +3989,11 @@ when "Import"
 	   break
 	  end
 	  when "Export"
+	$LEVELOld = $LEVEL 
 	puts "What would you like to name the output file?"
 	file_name = gets.strip
 	path = "information/CharacterImporter/"
-	open((File.join(path,file_name)),"a+") do |f|
+	open((File.join(path,file_name)),"w+") do |f|
 	 f.puts "#$NAME"
 	 f.puts "#$SPECIES"
 	 f.puts "#$CLASS"
@@ -4150,7 +4152,58 @@ $TITLES = 0
         break
 	  end
     else
-	 print "You have not saved.\n"  
+	puts "What would you like to name the output file?"
+	file_name = gets.strip
+	path = "information/CharacterImporter/"
+	open((File.join(path,file_name)),"w+") do |f|
+	 f.puts "#$NAME"
+	 f.puts "#$SPECIES"
+	 f.puts "#$CLASS"
+	 f.puts "#$LEVEL"
+     f.puts "#$HP"
+     f.puts "#$MR"
+     f.puts "#$STA"
+     f.puts "#$PATK"
+     f.puts "#$MATK"
+     f.puts "#$DEX"
+     f.puts "#$ACC"
+     f.puts "#$BLK"
+     f.puts "#$DOD"
+     f.puts "#$PER"
+     f.puts "#$CHAR"
+     f.puts "#$LUCK"
+     f.puts "#$SNEAK"
+     f.puts "#$MOVE"
+	 f.puts "#$TO"
+	 f.puts "#$SENSE1" 
+	 f.puts "#$SENSEL1" 
+	 f.puts "#$SENSE2"
+	 f.puts "#$SENSEL2"
+	 f.puts "#$SENSE3"
+	 f.puts "#$SENSEL3"
+	 f.puts "#$SENSE4"
+	 f.puts "#$SENSEL4"
+	 f.puts "#$SENSE5"
+	 f.puts "#$SENSEL5"
+     f.puts "#$SENSE6"
+     f.puts "#$SENSEL6"
+     f.puts "#$SENSE7"
+     f.puts "#$SENSEL7"
+     f.puts "#$SENSE8"
+     f.puts "#$SENSEL8"
+ 	 f.puts "#$SENSE9"
+ 	 f.puts "#$SENSEL9"
+ 	 f.puts "#$SENSE10"
+ 	 f.puts "#$SENSEL10"
+	 f.puts "#$TRAIT1"
+	 f.puts "#$TRAIT2"
+	 f.puts "#$PERKS"
+	 f.puts "#$ABILITY"
+	 f.puts "#$SKILLS"
+	 f.puts "#$TITLES"
+	 f.puts "#====================================="
+	 end
+	 break
 	end
 	  end
 	  end
