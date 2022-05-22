@@ -66,3 +66,55 @@ Ability: 0
 Skills: 0
 Titles: 0
 #=====================================
+Charibilyn
+Terran
+Assassin
+10
+60
+118
+139
+142
+173
+191
+106
+135
+141
+134
+131
+166
+6
+11
+3
+Senses:
+Sword
+ 0
+Magic Power
+ 0
+Darkness Magic Talent
+ 0
+Magic Talent
+ 0
+Cloth Garment
+ 0
+Stealth
+ 
+Delay
+ 0
+Speed Increase
+ 0
+Provocation
+ 0
+Swordsmen's Knowledge
+ 0
+Swordsmen's Knowledge
+ 0
+Traits:
+Fear the Reaper
+Logan's Loophole
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================

@@ -64,3 +64,53 @@ Ability: 0
 Skills: 0
 Titles: 0
 #=====================================
+Name: Charibilyn
+Species: Terran
+Class: Assassin
+Level: 10
+HP: 60
+MR: 118
+PATK: 139
+MATK: 142
+DEX: 173
+ACC: 191
+BLK: 106
+DOD: 135
+PER: 141
+CHAR: 134
+LUCK: 131
+SNEAK: 166
+MOVE: 6
+STA: 11
+TO: 3
+Senses:
+Sword
+ 0
+Magic Power
+ 0
+Darkness Magic Talent
+ 0
+Magic Talent
+ 0
+Cloth Garment
+ 0
+Stealth
+ 
+Delay
+ 0
+Speed Increase
+ 0
+Provocation
+ 0
+Swordsmen's Knowledge
+ 0
+Traits:
+Fear the Reaper
+Logan's Loophole
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
