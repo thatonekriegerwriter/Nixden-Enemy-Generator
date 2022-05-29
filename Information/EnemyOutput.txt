@@ -1,0 +1,343 @@
+Gaiye
+Terran
+Knight
+9
+120
+62
+125
+50
+70
+73
+101
+105
+53
+25
+54
+53
+5
+7
+5
+Senses:
+Sword 1
+Armor 1
+Shieldbearer 1
+Magic Power 1
+Holy Element Talent 1
+Swiftness
+ 
+Defying Heart
+ 1
+Action Restriction Release
+ 1
+Athletics
+ 1
+Saber
+ 1
+Saber
+ 1
+Traits:
+Close Quarters Conviction
+Hotblooded
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Framea
+Terran
+Ranger
+1
+60
+53
+40
+28
+85
+113
+22
+74
+70
+41
+42
+44
+7
+12
+2
+Senses:
+Daggers 1
+n
+ 1
+Magic Power 1
+n
+ 1
+n
+ 1
+n
+ 
+n
+ 1
+n
+ 1
+n
+ 1
+n
+ 1
+n
+ 1
+Traits:
+n
+n
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Erie
+Terran
+Sage
+1
+60
+74
+76
+46
+31
+30
+21
+39
+34
+25
+29
+31
+5
+12
+8
+Senses:
+Unarmed 1
+ei
+ 1
+Magic Power 1
+gne
+ 1
+Water Element Talent 1
+gei
+ 
+geni
+ 1
+gein
+ 1
+gei
+ 1
+gein
+ 1
+gein
+ 1
+Traits:
+egin
+egin
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Terran
+Terran
+Fighter
+3
+165
+43
+108
+18
+38
+41
+45
+29
+35
+25
+43
+39
+3
+15
+10
+Senses:
+Unarmed 1
+
+ 1
+Magic Power 1
+
+ 1
+
+ 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Hiro
+Psydonian
+Hunter
+1
+60
+58
+31
+30
+59
+77
+17
+75
+40
+20
+31
+27
+5
+12
+6
+Senses:
+Longbow 1
+
+ 1
+Magic Power 1
+
+ 1
+
+ 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Trey
+Psydonian
+Knight
+1
+100
+49
+50
+32
+53
+61
+54
+84
+28
+20
+46
+41
+5
+7
+5
+Senses:
+Sword 1
+Armor 1
+Shieldbearer 1
+Magic Power 1
+Darkness Element Talent 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Chloe
+Terran
+Parivir
+20
+110
+243
+252
+216
+252
+283
+230
+241
+236
+229
+234
+229
+4
+14
+6
+Senses:
+Sword 1
+
+ 1
+Magic Power 1
+
+ 1
+
+ 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================

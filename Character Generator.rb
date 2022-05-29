@@ -85,6 +85,7 @@ $SENSEL8Old = 0
 $SENSEL9Old = 0
 $SENSEL10Old = 0
 $INCREASE = 0
+$POINTBUILD = 0
 
 while $i < $num  do   
    puts "                                                                                
@@ -2827,6 +2828,7 @@ when "Import"
 	  when "clear"
 	  Screen.clear
 	  when "Yes"
+      $POINTBUILD = (($MR.to_i+$PER.to_i)/20)+7
 	  $LEVELOld = $LEVEL
      while $i < $num  do  
 	  print "You are leveling up: #$NAME \n"
@@ -2834,6 +2836,7 @@ when "Import"
 	  print "Which stat would you like to address first? \n"
 	  print "#$NAME 's Old Level is #$LEVELOld, the new Level is #$LEVEL. \n" if $HPOld != 0
 	  print "#$NAME 's Old HP is #$HPOld, the new HP is #$HP. \n" if $HPOld != 0
+	  print "#$NAME has #$POINTBUILD Point Build Points.\n"
 	  print "[LEVEL] \n"
 	  print "[SENSES] \n"
 	  print "[HP] 'Rare'\n"
@@ -2849,11 +2852,19 @@ when "Import"
 	  print "[LUCK] \n"
 	  print "[SNEAK] \n"
 	  case gets().strip()
+	  when "Point Build"
 	  when "clear"
 	  Screen.clear
 	  when "LEVEL"
 	   $LEVEL= $LEVEL.to_i + 1
-	   print "<Experience has reached the required level. #$NAME has increased from Lv#$LEVELOld to LV#$LEVEL.>\n"
+	   open('Information\LevelUpOutput.txt', "a+") do |f|
+	   f.puts "```<Experience has reached the required level. #$NAME has increased from Lv#$LEVELOld to LV#$LEVEL.>"
+	   f.puts ""
+	   f.puts "<All basic attributes have increased.>"
+	   f.puts "<Skill proficiency level-up bonus acquired.>"
+	   f.puts "<Proficiency has reached the required level.>"
+	   f.puts "<#$NAME has #$POINTBUILD Point Build Points..>"
+	   end
 	   case $SPECIES
 	   when "Dragon"
         $HP = $HP.to_i + 5
@@ -2933,43 +2944,63 @@ when "Import"
 	     when "1"
 		   $INCREASE = rand(0..5)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "2"
 		   $INCREASE = rand(1..7)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "3"
 		   $INCREASE = rand(2..10)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "4"
 		   $INCREASE = rand(3..13)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "5"
 		   $INCREASE = rand(4..15)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "6"
 		   $INCREASE = rand(5..16)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "7"
 		   $INCREASE = rand(6..17)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "8"
 		   $INCREASE = rand(7..18)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "9"
 		   $INCREASE = rand(8..19)
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	     when "10"
 		   $INCREASE = rand(9..20) 
            $HP  = $HP.to_i + $INCREASE.to_i
-	       print "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Health Points Increased: #$HPOld >#$INCREASE> #$HP>"
+	       end
 	  end
 	  when "MR"
 	   $MROld = $MR
@@ -2982,42 +3013,63 @@ when "Import"
 	     when "1"
 		   $INCREASE = rand(0..5)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $MR  = $MR.to_i+ $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	     when "10" 
-           $INCREASE = $INCREASE.to_i
-	       print "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>\n"
+           $INCREASE = rand(9..20) 
+	       puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Reserves Increased: #$MROld >#$INCREASE> #$MR>"
+	       end
 	  end
 	   print "#$NAME 's MR is now #$MR. \n"
 	  when "PATK"
@@ -3032,42 +3084,72 @@ when "Import"
            $INCREASE = rand(0..5)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	     when "10"
            $INCREASE = rand(9..20) 
            $PATK  = $PATK.to_i+ $INCREASE.to_i
 	       print "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>\n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Physical Attack Increased: #$PATKOld >#$INCREASE> #$PATK>"
+	       end
 	  end
 	   print "#$NAME 's PATK is #$PATK. \n"
 	  when "MATK"
@@ -3081,42 +3163,72 @@ when "Import"
            $INCREASE = rand(0..5)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	     when "10"
            $INCREASE = rand(9..20) 
            $MATK  = $MATK.to_i+ $INCREASE.to_i
 	       print "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Magical Attack Increased: #$MATKOld >#$INCREASE> #$MATK>"
+	       end
 	  end
 	   print "#$NAME 's MATK is #$MATK. \n"
 	  when "ACC"
@@ -3131,41 +3243,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $ACC  = $ACC.to_i+ $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       end
 	  end
 	   print "#$NAME 's ACC is #$ACC. \n"
 	  when "DEX"
@@ -3180,41 +3322,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $DEX  = $DEX.to_i+ $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dexterity Increased: #$DEXOld >#$INCREASE> #$DEX>"
+	       end
 	  end
 	   print "#$NAME 's DEX is #$DEX. \n"
 	  when "BLK"
@@ -3229,41 +3401,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $BLK  = $BLK.to_i+ $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Block Increased: #$BLKOld >#$INCREASE> #$BLK>"
+	       end
 	  end
 	   print "#$NAME 's BLK is #$BLK. \n"
 	  when "DOD"
@@ -3278,41 +3480,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $DOD  = $DOD.to_i+ $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Dodge Increased: #$DODOld >#$INCREASE> #$DOD>"
+	       end
 	  end
 	   print "#$NAME 's DOD is #$DOD. \n"
 	  when "PER"
@@ -3327,41 +3559,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $PER  = $PER.to_i+ $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Perception Increased: #$PEROld >#$INCREASE> #$PER>"
+	       end
 	  end
 	   print "#$NAME 's PER is #$PER. \n"
 	  when "CHAR"
@@ -3376,41 +3638,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $CHAR2  = $CHAR2.to_i+ $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Charisma Bonus Increased: #$CHAR2Old >#$INCREASE> #$CHAR2>"
+	       end
 	  end
 	   print "#$NAME 's CHAR2 is #$CHAR2. \n"
 	  when "LUCK"
@@ -3426,41 +3718,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $LUCK  = $LUCK.to_i+ $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Luck Increased: #$LUCKOld >#$INCREASE> #$LUCK>"
+	       end
 	     when "Back" 
 	  end
 	   print "#$NAME 's LUCK is #$LUCK. \n"
@@ -3476,41 +3798,71 @@ when "Import"
 		   $INCREASE = rand(0..5)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "2"
            $INCREASE = rand(1..7)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "3"
            $INCREASE = rand(2..10)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "4"
            $INCREASE = rand(3..13)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "5"
            $INCREASE = rand(4..15)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "6"
            $INCREASE = rand(5..16)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "7"
            $INCREASE = rand(6..17)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "8"
            $INCREASE = rand(7..18)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "9"
            $INCREASE = rand(8..19)
            $SNEAK  = $SNEAK.to_i+ $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
 	       print "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<SNEAK Increased: #$SNEAKOld >#$INCREASE> #$SNEAK>"
+	       end
 	  end
 	   print "#$NAME 's SNEAK is #$SNEAK. \n"
 	  when "End"
@@ -3551,43 +3903,43 @@ when "Import"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
-           $SENSEL1  = $SENSEL1.to_i + 1
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "2"
 		   $INCREASE = 2
-           $SENSEL1  = $SENSEL1.to_i + 2
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "3"
 		   $INCREASE = 3
-           $SENSEL1  = $SENSEL1.to_i + 3
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "4"
 		   $INCREASE = 4
-           $SENSEL1  = $SENSEL1.to_i + 4
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "5"
 		   $INCREASE = 5
-           $SENSEL1  = $SENSEL1.to_i + 5
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "6"
 		   $INCREASE = 6
-           $SENSEL1  = $SENSEL1.to_i + 6
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "7"
 		   $INCREASE = 7
-           $SENSEL1  = $SENSEL1.to_i + 7
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "8"
 		   $INCREASE = 8
-           $SENSEL1  = $SENSEL1.to_i + 8
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "9"
 		   $INCREASE = 9
-           $SENSEL1  = $SENSEL1.to_i + 9
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "10"
 		   $INCREASE = 10
-           $SENSEL1  = $SENSEL1.to_i + 10
+           $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	  end
 	        puts "#$SENSE1's level is #$SENSEL1 \n"
@@ -3598,43 +3950,43 @@ when "Import"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
-           $SENSEL2  = $SENSEL2.to_i + 1
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "2"
 		   $INCREASE = 2
-           $SENSEL2  = $SENSEL2.to_i + 2
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "3"
 		   $INCREASE = 3
-           $SENSEL2  = $SENSEL2.to_i + 3
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "4"
 		   $INCREASE = 4
-           $SENSEL2  = $SENSEL2.to_i + 4
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "5"
 		   $INCREASE = 5
-           $SENSEL2  = $SENSEL2.to_i + 5
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "6"
 		   $INCREASE = 6
-           $SENSEL2  = $SENSEL2.to_i + 6
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "7"
 		   $INCREASE = 7
-           $SENSEL2  = $SENSEL2.to_i + 7
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "8"
 		   $INCREASE = 8
-           $SENSEL2  = $SENSEL2.to_i + 8
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "9"
 		   $INCREASE = 9
-           $SENSEL2  = $SENSEL2.to_i + 9
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "10"
 		   $INCREASE = 10
-           $SENSEL2  = $SENSEL2.to_i + 10
+           $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	  end
 	        puts "#$SENSE2's level is #$SENSEL2 \n"
@@ -3645,43 +3997,43 @@ when "Import"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
-           $SENSEL3  = $SENSEL3.to_i + 1
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "2"
 		   $INCREASE = 2
-           $SENSEL3  = $SENSEL3.to_i + 2
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "3"
 		   $INCREASE = 3
-           $SENSEL3  = $SENSEL3.to_i + 3
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "4"
 		   $INCREASE = 4
-           $SENSEL3  = $SENSEL3.to_i + 4
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "5"
 		   $INCREASE = 5
-           $SENSEL3  = $SENSEL3.to_i + 5
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "6"
 		   $INCREASE = 6
-           $SENSEL3  = $SENSEL3.to_i + 6
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "7"
 		   $INCREASE = 7
-           $SENSEL3  = $SENSEL3.to_i + 7
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "8"
 		   $INCREASE = 8
-           $SENSEL3  = $SENSEL3.to_i + 8
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "9"
 		   $INCREASE = 9
-           $SENSEL3  = $SENSEL3.to_i + 9
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "10"
 		   $INCREASE = 10
-           $SENSEL3  = $SENSEL3.to_i + 10
+           $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	  end
 	        puts "#$SENSE3's level is #$SENSEL3 \n"
@@ -3692,43 +4044,43 @@ when "Import"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
-           $SENSEL4  = $SENSEL4.to_i + 1
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "2"
 		   $INCREASE = 2
-           $SENSEL4  = $SENSEL4.to_i + 2
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "3"
 		   $INCREASE = 3
-           $SENSEL4  = $SENSEL4.to_i + 3
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "4"
 		   $INCREASE = 4
-           $SENSEL4  = $SENSEL4.to_i + 4
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "5"
 		   $INCREASE = 5
-           $SENSEL4  = $SENSEL4.to_i + 5
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "6"
 		   $INCREASE = 6
-           $SENSEL4  = $SENSEL4.to_i + 6
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "7"
 		   $INCREASE = 7
-           $SENSEL4  = $SENSEL4.to_i + 7
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "8"
 		   $INCREASE = 8
-           $SENSEL4  = $SENSEL4.to_i + 8
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "9"
 		   $INCREASE = 9
-           $SENSEL4  = $SENSEL4.to_i + 9
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "10"
 		   $INCREASE = 10
-           $SENSEL4  = $SENSEL4.to_i + 10
+           $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	  end
 	        puts "#$SENSE4's level is #$SENSEL4 \n"
@@ -3739,35 +4091,35 @@ when "Import"
 	   case gets().strip()
 	     when "1"
 		   $INCREASE = 1
-           $SENSEL5  = $SENSEL5.to_i + 1
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "2"
 		   $INCREASE = 2
-           $SENSEL5  = $SENSEL5.to_i + 2
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "3"
 		   $INCREASE = 3
-           $SENSEL5  = $SENSEL5.to_i + 3
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "4"
 		   $INCREASE = 4
-           $SENSEL5  = $SENSEL5.to_i + 4
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "5"
 		   $INCREASE = 5
-           $SENSEL5  = $SENSEL5.to_i + 5
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "6"
 		   $INCREASE = 6
-           $SENSEL5  = $SENSEL5.to_i + 6
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "7"
 		   $INCREASE = 7
-           $SENSEL5  = $SENSEL5.to_i + 7
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "8"
 		   $INCREASE = 8
-           $SENSEL5  = $SENSEL5.to_i + 8
+           $SENSEL5  = $SENSEL5.to_i + $INCREASE.to_i
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	     when "9"
 		   $INCREASE = 9

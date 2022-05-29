@@ -1,0 +1,117 @@
+<Magical Reserves Increased: 58 >0> 58>
+<Physical Attack Increased: 30 >4> 34>
+<Magical Attack Increased: 0 >10> 69>
+<Accuracy Increased: 17 >0> 17>
+<Dexterity Increased: 77 >7> 84>
+<Dodge Increased: 40 >9> 49>
+```<Experience has reached the required level. Hiro has increased from Lv1 to LV2.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 10 Point Build Points..>
+<Magical Reserves Increased: 58 >10> 68>
+<Physical Attack Increased: 34 >2> 36>
+<Magical Attack Increased: 0 >5> 74>
+<Dexterity Increased: 84 >15> 99>
+<Dodge Increased: 49 >4> 53>
+```<Experience has reached the required level. Hiro has increased from Lv2 to LV3.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 10 Point Build Points..>
+<Magical Attack Increased: 0 >5> 79>
+<Dexterity Increased: 99 >13> 112>
+<Dodge Increased: 53 >13> 66>
+```<Experience has reached the required level. Hiro has increased from Lv3 to LV4.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 11 Point Build Points..>
+```<Experience has reached the required level. Hiro has increased from Lv4 to LV5.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 11 Point Build Points..>
+<Physical Attack Increased: 36 >8> 44>
+<Magical Attack Increased: 0 >9> 88>
+<Accuracy Increased: 17 >3> 20>
+<Dexterity Increased: 112 >7> 119>
+<Dodge Increased: 66 >8> 74>
+```<Experience has reached the required level. Hiro has increased from Lv5 to LV6.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 11 Point Build Points..>
+<Physical Attack Increased: 44 >12> 56>
+<Magical Attack Increased: 0 >12> 100>
+<Accuracy Increased: 20 >11> 31>
+<Dexterity Increased: 119 >5> 124>
+<Dodge Increased: 74 >13> 87>
+<Magical Reserves Increased: 68 >13> 68>
+<Magical Reserves Increased: 68 >13> 68>
+<Physical Attack Increased: 56 >9> 65>
+<Magical Attack Increased: 0 >2> 102>
+<Accuracy Increased: 31 >1> 32>
+<Dexterity Increased: 124 >7> 131>
+<Dodge Increased: 87 >13> 100>
+<Magical Reserves Increased: 68 >0> 68>
+<Magical Reserves Increased: 68 >14> 68>
+<Magical Reserves Increased: 68 >15> 68>
+<Magical Reserves Increased: 68 >15> 83>
+<Magical Reserves Increased: 83 >5> 88>
+<Magical Reserves Increased: 88 >10> 98>
+<Magical Reserves Increased: 98 >11> 109>
+<Magical Reserves Increased: 109 >18> 109>
+```<Experience has reached the required level. Hiro has increased from Lv6 to LV7.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 13 Point Build Points..>
+<Magical Reserves Increased: 109 >16> 125>
+<Physical Attack Increased: 65 >7> 72>
+<Magical Attack Increased: 0 >15> 117>
+<Accuracy Increased: 32 >6> 38>
+<Dexterity Increased: 131 >11> 142>
+<Dodge Increased: 100 >5> 105>
+```<Experience has reached the required level. Hiro has increased from Lv7 to LV8.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 14 Point Build Points..>
+<Magical Reserves Increased: 125 >15> 125>
+<Physical Attack Increased: 72 >6> 78>
+<Magical Attack Increased: 0 >9> 126>
+<Accuracy Increased: 38 >12> 50>
+<Dexterity Increased: 142 >12> 142>
+<Dodge Increased: 105 >7> 112>
+```<Experience has reached the required level. Hiro has increased from Lv8 to LV9.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 14 Point Build Points..>
+<Magical Reserves Increased: 125 >7> 132>
+<Physical Attack Increased: 78 >10> 88>
+<Magical Attack Increased: 0 >11> 137>
+<Accuracy Increased: 50 >8> 58>
+<Dexterity Increased: 142 >8> 142>
+<Dodge Increased: 112 >8> 112>
+```<Experience has reached the required level. Hiro has increased from Lv9 to LV10.>
+
+<All basic attributes have increased.>
+<Skill proficiency level-up bonus acquired.>
+<Proficiency has reached the required level.>
+<Hiro has 14 Point Build Points..>
+<Physical Attack Increased: 88 >2> 90>
+<Magical Reserves Increased: 132 >17> 132>
+<Magical Attack Increased: 0 >10> 147>
+<Accuracy Increased: 58 >12> 70>
+<Dexterity Increased: 142 >14> 156>
+<Dodge Increased: 112 >12> 124>

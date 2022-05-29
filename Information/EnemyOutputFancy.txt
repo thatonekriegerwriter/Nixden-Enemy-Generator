@@ -1,0 +1,329 @@
+Name: Gaiye
+Species: Terran
+Class: Knight
+Level: 9
+HP: 120
+MR: 62
+PATK: 125
+MATK: 50
+DEX: 70
+ACC: 73
+BLK: 101
+DOD: 105
+PER: 53
+CHAR: 25
+LUCK: 54
+SNEAK: 53
+MOVE: 5
+STA: 7
+TO: 5
+Senses:
+Sword 1
+Armor 1
+Shieldbearer 1
+Magic Power 1
+Holy Element Talent 1
+Swiftness
+ 1
+Defying Heart
+ 1
+Action Restriction Release
+ 1
+Athletics
+ 1
+Saber
+ 1
+Traits:
+Close Quarters Conviction
+Hotblooded
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Name: Framea
+Species: Terran
+Class: Ranger
+Level: 1
+HP: 60
+MR: 53
+PATK: 40
+MATK: 28
+DEX: 85
+ACC: 113
+BLK: 22
+DOD: 74
+PER: 70
+CHAR: 41
+LUCK: 42
+SNEAK: 44
+MOVE: 7
+STA: 12
+TO: 2
+Senses:
+Daggers 1
+n
+ 1
+Magic Power 1
+n
+ 1
+n
+ 1
+n
+ 
+n
+ 1
+n
+ 1
+n
+ 1
+n
+ 1
+Traits:
+n
+n
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Name: Erie
+Species: Terran
+Class: Sage
+Level: 1
+HP: 60
+MR: 74
+PATK: 76
+MATK: 46
+DEX: 31
+ACC: 30
+BLK: 21
+DOD: 39
+PER: 34
+CHAR: 25
+LUCK: 29
+SNEAK: 31
+MOVE: 5
+STA: 12
+TO: 8
+Senses:
+Unarmed 1
+ei
+ 1
+Magic Power 1
+gne
+ 1
+Water Element Talent 1
+gei
+ 
+geni
+ 1
+gein
+ 1
+gei
+ 1
+gein
+ 1
+Traits:
+egin
+egin
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Name: Terran
+Species: Terran
+Class: Fighter
+Level: 3
+HP: 92/165
+MR: 43
+PATK: 108
+MATK: 18
+DEX: 38
+ACC: 41
+BLK: 45
+DOD: 29
+PER: 35
+CHAR: 25
+LUCK: 43
+SNEAK: 39
+MOVE: 3
+STA: 15
+TO: 10
+Senses:
+Unarmed 1
+
+ 1
+Magic Power 1
+
+ 1
+
+ 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Name: Hiro
+Species: Psydonian
+Class: Hunter
+Level: 1
+HP: 60
+MR: 58
+PATK: 31
+MATK: 30
+DEX: 59
+ACC: 77
+BLK: 17
+DOD: 75
+PER: 40
+CHAR: 20
+LUCK: 31
+SNEAK: 27
+MOVE: 5
+STA: 12
+TO: 6
+Senses:
+Longbow 1
+
+ 1
+Magic Power 1
+
+ 1
+
+ 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Name: Trey
+Species: Psydonian
+Class: Knight
+Level: 1
+HP: 100
+MR: 49
+PATK: 50
+MATK: 32
+DEX: 53
+ACC: 61
+BLK: 54
+DOD: 84
+PER: 28
+CHAR: 20
+LUCK: 46
+SNEAK: 41
+MOVE: 5
+STA: 7
+TO: 5
+Senses:
+Sword 1
+Armor 1
+Shieldbearer 1
+Magic Power 1
+Darkness Element Talent 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Name: Chloe
+Species: Terran
+Class: Parivir
+Level: 20
+HP: 110
+MR: 243
+PATK: 252
+MATK: 216
+DEX: 252
+ACC: 283
+BLK: 230
+DOD: 241
+PER: 236
+CHAR: 229
+LUCK: 234
+SNEAK: 229
+MOVE: 4
+STA: 14
+TO: 6
+Senses:
+Sword 1
+
+ 1
+Magic Power 1
+
+ 1
+
+ 1
+
+ 
+
+ 1
+
+ 1
+
+ 1
+
+ 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
