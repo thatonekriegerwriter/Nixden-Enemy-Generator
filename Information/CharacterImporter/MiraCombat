@@ -3,15 +3,15 @@ Species: Terran
 Class: Sage
 Level: 16
 HP: 80
-MR: 223
+MR: 223 235+6
 STA: 7
-PATK: 66
-MATK: 97
-DEX: 67
-ACC: 62
-BLK: 52
-DOD: 92
-PER: 74
+PATK: 66  78+6
+MATK: 97  109+6
+DEX: 67  79+6
+ACC: 62  74+6
+BLK: 52  66+6
+DOD: 92  104+6
+PER: 74  +6
 CHAR: 25
 LUCK: 65
 SNEAK: 46

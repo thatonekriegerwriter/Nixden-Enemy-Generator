@@ -3,18 +3,18 @@ Species: Psydonian
 Class: Paladin
 Level: 11
 HP: 107/107
-MR: 100/100
+MR: 100/100 (112/112 +6)
 STA: 7/7
-PATK: 105
-MATK: 96
-DEX: 34
-ACC: 113
-BLK: 32
-DOD: 67+15
-PER: 61
-CHAR: 20
-LUCK: 63
-SNEAK: 52
+PATK: 105 (117+6)
+MATK: 96 (108+6)
+DEX: 34 (46+6)
+ACC: 113 (125+6)
+BLK: 32 (44+6)
+DOD: 67+15 (79+21)
+PER: 73   +6  
+CHAR: 20  +6
+LUCK: 63  +6
+SNEAK: 52  +6
 MOVE: 4
 TO 7
 Senses:

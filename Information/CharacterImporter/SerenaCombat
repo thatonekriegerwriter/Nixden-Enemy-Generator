@@ -3,16 +3,16 @@ Species: Psydonian
 Class: Black Mage
 Level: 16
 HP: 50
-MR: 175
+MR: 175 (187+6)
 STA: 13
-PATK: 51
-MATK: 2d78 (156)
-DEX: 101
-ACC: 94
-BLK: 62
-DOD: 99
-PER: 61
-CHAR: 20
+PATK: 51  (63+6)
+MATK: 2d78 (156)   (168+6) 2d84+6
+DEX: 101   (113+6) 
+ACC: 94    (106+6)
+BLK: 62    74+6
+DOD: 99   111+6
+PER: 61    +6
+CHAR: 20   
 LUCK: 76
 SNEAK: 65
 MOVE: 4

@@ -1,17 +1,30 @@
+While standing still, you gain +25 Block, and your melee and unarmed attacks deal +7 more damage. 
+Allows you to negate one incoming critical blow per fight. 
+Within a blink of an eye, your enemy may be sliced in half, in your movement, you actually slashed twice, you have a 20% chance to be able to attack again. 
+
+Refined Nifil Blade [One-Handed]: A Sword of the Realm of Frost and Ice. Runes Decorate the Swords Blade that, 
+when activated, release the powerful essence of Cold held within. +d35 BLK, +d30 P.ATK Additional Effect: Spirit of the Frozen World: Increases Dealt Ice Damage by 1.5
+Refined Musple Blade [One-Handed]: A Sword of the Firelands Refined beyond its previous form. Its blade, 
+when the runes are activated, lets off heat like nothing else and has the appearance of metal just removed from the Forge. +d30 BLK, +d35 
+P.ATK Additional Effect: Spirit of the Firelands: Increases Dealt Fire Damage by 1.5 
+
+Spirit Arm - Focused Fire Spirit Blade <One-Handed>: (+40 BLK) A Sword blessed by an Fire Spirit from the Fifty Bells, contains the high power magic 'Flare', which attacks enemies in a 3x3 radius around the user. Usage costs 40 MR, and deals a flat 70, plus your M ATK.
+Spirit Arm - Wild Abyssal Spirit Blade <One-Handed>: (+40 PATK) A Sword blessed by a Rare Abyssal Spirit found by Chimera Clausen, it contains the high power Magic 'Diminish', which effects all people in a 6x6 radius around  the user, weakening their elemental damage by half. Usage costs 20 MR.
+
 Name: Trey
 Species: Psydonian
 Class: Knight
 Level: 12
 HP: 100/100
-MR: 94/94
+MR: 94/94 (106/106  +8)
 STA: 7/7
-PATK: 164
-MATK: 47
-DEX: 41
-ACC: 115
-BLK: 2d72
-DOD: 97
-PER: 66
+PATK: 2d205 (2d217+8)
+MATK: 47  (59+8)
+DEX: 41  (53+8)
+ACC: 142  (154+8) 1.5x 
+BLK: 2d100+8 (189) (201+8)
+DOD: 97 (109+8)
+PER: 66  (78+8)
 CHAR: 20
 LUCK: 41
 SNEAK: 34
@@ -23,10 +36,10 @@ One-Handed Sword Lv50
 Dual Swords Lv39
 Light Armour Lv90
 Magic Power Lv57
-Defying Heart Lv18
+Defying Heart Lv18 is a passive Sense that activates at 25% HP, which makes all stats go up by 10% for every 5 HP lost. 
 Party Lv20
 Clan Lv19
-Fighting Spirit Lv21
+Fighting Spirit Lv21 is a passive Sense that activates when you have landed three attacks in a row, you take 10 less damage until your chain is broken, and while chaining, you have no knockback. 
 Improved Commanding Lv21
 Traits:
 One-Hander
