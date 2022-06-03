@@ -572,3 +572,49 @@ None
 0
 0
 #=====================================
+Katia
+Terran
+Spellsword
+12
+80
+184
+15
+159
+150
+183
+224
+147
+168
+154
+147
+157
+148
+5
+6
+Sword
+1
+Magic Talent
+1
+Magic Power
+1
+Fire Magic
+1
+Earth Element Talent
+1
+Parallel Minds
+1
+Appraisal
+1
+Divinity
+1
+Physical Increase
+1
+Fighting Spirit
+1
+Cinematic Technique
+Overwhelming Odds
+None
+0
+0
+0
+#=====================================
