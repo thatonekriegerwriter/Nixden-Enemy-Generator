@@ -327,3 +327,231 @@ Ability: 0
 Skills: 0
 Titles: 0
 #=====================================
+Name: Mariana
+Species: Terran
+Class: Red Mage
+Level: 10
+HP: 70
+MR: 171
+PATK: 144
+MATK: 141
+DEX: 116
+ACC: 132
+BLK: 113
+DOD: 145
+PER: 141
+CHAR: 131
+LUCK: 134
+SNEAK: 134
+MOVE: 6
+STA: 12
+TO: 3
+Senses:
+Rapier 1
+0 1
+Magic Power 1
+0 1
+Neutral Element Talent 1
+0 
+0 1
+0 1
+0 1
+0 1
+Traits:
+
+
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Name: Trey
+Species: Psydonian
+Class: Knight
+Level: 12
+HP: 100
+MR: 89
+PATK: 105
+MATK: 47
+DEX: 96
+ACC: 86
+BLK: 107
+DOD: 144
+PER: 51
+CHAR: 20
+LUCK: 38
+SNEAK: 49
+MOVE: 5
+STA: 7
+TO: 5
+Senses:
+Sword
+ 1
+One-Handed Sword
+ 1
+Dual Swords
+ 1
+Light Armour
+ 1
+Magic Power
+ 1
+Defying Heart
+ 
+Party
+ 1
+Clan
+ 1
+Fighting Spirit
+ 1
+Improved Commanding
+ 1
+Traits:
+One-Hander
+Close Quarters Conviction
+Perks:
+None
+Other:
+Ability: 0
+Skills: 0
+Titles: 0
+#=====================================
+Trey
+Psydonian
+Knight
+12
+100
+94
+7
+139
+47
+91
+115
+108
+152
+66
+20
+41
+34
+5
+5
+Sword
+1
+One-Handed Sword
+1
+Dual Swords
+1
+Light Armour
+1
+Magic Power
+1
+Defying Heart
+1
+Party
+1
+Clan
+1
+Fighting Spirit
+1
+Improved Commanding
+1
+One-Hander
+Close Quarters Conviction
+None
+0
+0
+0
+#=====================================
+Sara
+Psydonian
+Paladin
+11
+120
+100
+16
+60
+65
+71
+113
+106
+81
+61
+20
+63
+52
+4
+7
+Two-Handed Sword
+1
+Armour
+1
+Magic Talent
+1
+Magic Power
+1
+Might
+1
+Swiftness
+1
+Recover
+1
+Equipment Weight Reduction
+1
+3D Action Restriction Release
+1
+Light Element Talent
+1
+Acrobat
+Cinematic Technique
+None
+0
+0
+0
+#=====================================
+Serena
+Psydonian
+Black Mage
+16
+50
+145
+13
+51
+143
+101
+94
+62
+99
+61
+20
+76
+65
+4
+8
+Bishop Staff
+1
+Parallel Minds
+1
+Ice Element Talent
+1
+Sorcery
+1
+Chanting Reduction
+1
+Delay
+1
+Magic Increase
+1
+MR Regen Increase
+1
+Insight
+1
+Mage's Knowledge
+1
+Camper
+Hide Behind Numbers
+None
+0
+0
+0
+#=====================================
