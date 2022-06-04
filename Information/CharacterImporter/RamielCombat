@@ -4,7 +4,7 @@ Alchemists Nifil Gauntlet:  Additional Effect: Spirit of the Frozen World: Incre
 Alchemists Musple Gauntlet: Additional Effect: Spirit of the Firelands: Increases Dealt Fire Damage by 1.5  || Equipped Armlet" Volcanite ||Equipped Rings: Ring of Ignition, Swiftwolf's Rending Gale,  Black Hole Band
 Valkyries Helm <Heavy Armor>: +30 MR
 Alchemists Valkyries Chest Piece <Heavy Armor>:  +40 BLK, +10 DOD Additional Effect: Minium Stone (1500/1500)
-Species: Human
+Species: Psydonian
 Class: Hero
 Level: 10
 HP: 100/100
@@ -21,18 +21,18 @@ CHAR: 20
 LUCK: 700
 SNEAK: 40
 MOVE: 3
-TO 6
+TO: 6
 Senses:
 Enchantment Sage LV Lv1 
 Huntress Queen Remiel
-Alchemy Lv Lv47
-Sorcery LV Lv27
-Pity LV Lv2
-Hero Lv Lv1
-Sense Gifting Lv Lv2
-Land Element Talent Lv Lv28
-Swiftness Lv Lv27
-Naming Lv Lv1
+Alchemy Lv47
+Sorcery Lv27
+Pity Lv2
+Hero Lv1
+Sense Gifting Lv2
+Land Element Talent Lv28
+Swiftness Lv27
+Naming Lv1
 Traits:
 Small Frame
 Hoarder

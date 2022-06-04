@@ -1,19 +1,19 @@
-Holy Shroud <Outerwear>
-Holy Shroud <Underwear>
-Holy Shroud <Belt>
-Holy Shroud <Skirt>
-Holy Shroud <Boot>
-Holy Shroud <Gloves>
-Lily <Accessory>
+Holy Shroud <Outerwear>: A Fine Iron Armor enhanced by Mya's Skill, and Hiro's Skills. +30 MR; Additional Effect: Light Absorption
+Holy Shroud <Underwear>: A Fine Iron Armor enhanced by Mya's Skill, and Hiro's Skills. +20 PATK; Additional Effect:  Stylish
+Holy Shroud <Belt>: A Fine Iron Armor enhanced by Mya's Skill, and Hiro's Skills.
+Holy Shroud <Skirt>: A Fine Iron Armor enhanced by Mya's Skill, and Hiro's Skills.
+Holy Shroud <Boot>: A Fine Iron Armor enhanced by Mya's Skill, and Hiro's Skills.
+Holy Shroud <Gloves>: A Fine Iron Armor enhanced by Mya's Skill, and Hiro's Skills. Additional Effect:  Fifth Breaker ACC +F10
+Lily <Accessory>: A Lily given to her my Serena-oniichan. 
 
 Name: Sara
 Species: Psydonian
 Class: Paladin
 Level: 11
 HP: 107/107
-MR: 100/100 (112/112 +6)
+MR: 100/100 (142/142 +6)
 STA: 7/7
-PATK: 105 (117+6)
+PATK: 105 (137+6)
 MATK: 96 (108+6)
 DEX: 34 (46+6)
 ACC: 113 (125+6)
@@ -24,18 +24,18 @@ CHAR: 20  +6
 LUCK: 63  +6
 SNEAK: 52  +6
 MOVE: 4
-TO 7
+TO: 7
 Senses:
-Two-Handed Sword Lv1 
-Armour Lv1
-Magic Talent Lv1
-Magic Power Lv1
-Might Lv1
-Swiftness Lv1
-Recover Lv1
-Equipment Weight Reduction Lv1
-3D Action Restriction Release Lv1
-Light Element Talent Lv1
+Two-Handed Sword Lv24 
+Armour Lv36
+Magic Talent Lv61
+Magic Power Lv48
+Might Lv31
+Swiftness Lv21
+Recover Lv32
+Equipment Weight Reduction Lv21
+3D Action Restriction Release Lv6
+Light Element Talent Lv64
 Traits:
 Acrobat
 Cinematic Technique

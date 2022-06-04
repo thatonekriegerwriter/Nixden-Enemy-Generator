@@ -22,18 +22,18 @@ CHAR: 20
 LUCK: 76
 SNEAK: 65
 MOVE: 4
-TO 8
+TO: 8
 Senses:
-Bishop Staff Lv1 
-Parallel Minds Lv1
-Ice Element Talent Lv1
-Sorcery Lv1
-Chanting Reduction Lv1
-Delay Lv1
-Magic Increase Lv1
-MR Regen Increase Lv1
-Insight Lv1
-Mage's Knowledge Lv1
+Bishop Staff Lv25 
+Parallel Minds Lv20
+Ice Element Talent Lv40
+Sorcery Lv6
+Chanting Reduction Lv16
+Delay Lv30
+Magic Increase Lv16
+MR Regen Increase Lv5
+Insight Lv14
+Mage's Knowledge Lv34
 Traits:
 Camper
 Hide Behind Numbers

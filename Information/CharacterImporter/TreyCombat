@@ -11,25 +11,33 @@ P.ATK Additional Effect: Spirit of the Firelands: Increases Dealt Fire Damage by
 Spirit Arm - Focused Fire Spirit Blade <One-Handed>: (+40 BLK) A Sword blessed by an Fire Spirit from the Fifty Bells, contains the high power magic 'Flare', which attacks enemies in a 3x3 radius around the user. Usage costs 40 MR, and deals a flat 70, plus your M ATK.
 Spirit Arm - Wild Abyssal Spirit Blade <One-Handed>: (+40 PATK) A Sword blessed by a Rare Abyssal Spirit found by Chimera Clausen, it contains the high power Magic 'Diminish', which effects all people in a 6x6 radius around  the user, weakening their elemental damage by half. Usage costs 20 MR.
 
+
+Protection Vest: +30 HP, +d10 BLK
+Ranger's Shirt: +30 HP, +d10 BLK
+Hand Protector: +d10 ACC
+Strong Belt: Boosts raw attack by 5. 
+Plate Boots: +d10 ACC, +d5 DOD
+
+
 Name: Trey
 Species: Psydonian
 Class: Knight
 Level: 12
-HP: 100/100
+HP: 160/160
 MR: 94/94 (106/106  +8)
 STA: 7/7
-PATK: 2d205 (2d217+8)
+PATK: 2d205 (2d217+13)
 MATK: 47  (59+8)
 DEX: 41  (53+8)
-ACC: 142  (154+8) 1.5x 
-BLK: 2d100+8 (189) (201+8)
-DOD: 97 (109+8)
+ACC: 152  (174+8) 1.5x 
+BLK: 2d110+8 (189) (221+8)
+DOD: 97 (114+8)
 PER: 66  (78+8)
 CHAR: 20
 LUCK: 41
 SNEAK: 34
 MOVE: 5
-TO 5
+TO: 5
 Senses:
 Sword Lv78 
 One-Handed Sword Lv50
