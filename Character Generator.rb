@@ -7,6 +7,8 @@ end
 
 module EnemyGenerator
 $i = 0
+$craftingi = 0
+$craftingnum = 0
 $num = 5
 $HP = 0
 $MR = 0
@@ -14,7 +16,8 @@ $STA = 0
 $PATK = 0
 $MATK = 0
 $DEX = 0
-$ACC = 0
+$PACC = 0
+$MACC = 0
 $BLK = 0
 $DOD = 0
 $PER = 0
@@ -27,6 +30,7 @@ $LEVEL = 0
 $CLASS = 0
 $TO = 0
 $NAME = 0
+$EVADE = 0
 $SENSE1 = 0
 $SENSE2 = 0
 $SENSE3 = 0
@@ -50,6 +54,11 @@ $SENSEL10 = 0
 $TRAIT1 = 0
 $TRAIT2 = 0
 $PERKS = 0
+$AACTION1 = 0
+$AACTION2 = 0
+$RACTION = 0
+$SACTION = 0
+$CACTION = 0
 $SPECIES = 0
 $ABILITY = 0
 $SKILLS = 0
@@ -62,7 +71,8 @@ $STAOld = 0
 $PATKOld = 0
 $MATKOld = 0
 $DEXOld = 0
-$ACCOld = 0
+$PACCOld = 0
+$MACCOld = 0
 $BLKOld = 0
 $DODOld = 0
 $PEROld = 0
@@ -86,6 +96,10 @@ $SENSEL9Old = 0
 $SENSEL10Old = 0
 $INCREASE = 0
 $POINTBUILD = 0
+$CRAFTINGTYPE = 0
+$CRAFTINGLEVEL = 0
+$FAILURES = 0
+$MAXFAILURES = 0
 
 while $i < $num  do   
    puts "                                                                                
@@ -160,13 +174,15 @@ when "Generate"
     $PATK = 5
     $MATK = 5
     $DEX = 5
-    $ACC = 5
+    $PACC = 5
+    $MACC = 5
     $BLK = 5
     $DOD = 5
     $PER = 5
     $CHAR = 5
     $LUCK = 5
     $SNEAK = 5
+    $EVADE = 5
 	when "Psydonian"
 	$SPECIES = "Psydonian"
     $HP = 0
@@ -175,7 +191,8 @@ when "Generate"
     $PATK = 0
     $MATK = 5
     $DEX = 20
-    $ACC = 0
+    $PACC = 0
+    $MACC = 5
     $BLK = 0
     $DOD = 30
     $PER = 0
@@ -184,6 +201,7 @@ when "Generate"
     $SNEAK = 0
     $TO = 0
     $NAME = 0
+    $EVADE = 10
    end
     print "What Level do you want? \n" 
      $LEVEL = gets()
@@ -231,7 +249,7 @@ when "Generate"
     $PATK += 30
     $MATK += 17
     $DEX += 20
-    $ACC += 30
+    $PACC += 30
     $BLK += 20
     $DOD += 20
     $PER += 25
@@ -244,7 +262,8 @@ when "Generate"
     $PATK += (6*$LEVEL.to_i) + rand(1..40)   
     $MATK += (2*$LEVEL.to_i) + rand(1..10)   
     $DEX += (4*$LEVEL.to_i) + rand(1..10)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..40)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..40)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (6*$LEVEL.to_i) + rand(1..30)   
     $DOD += (6*$LEVEL.to_i) + rand(1..30)   
     $PER += (2*$LEVEL.to_i) + rand(1..20)   
@@ -258,6 +277,7 @@ when "Generate"
     $SENSEL3 = 1
     $SENSE4 = "Magic Power"
     $SENSEL4 = 1
+    $EVADE = 35
 	if rand(9)==1
     $SENSE5 = "Fire Element Talent"
 	elsif rand(9)==2
@@ -291,7 +311,8 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..10)   
     $MATK += (2*$LEVEL.to_i) + rand(1..10)   
     $DEX += (6*$LEVEL.to_i) + rand(1..40)   
-    $ACC += (3*$LEVEL.to_i) + rand(1..40)   
+    $PACC += (3*$LEVEL.to_i) + rand(1..40)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..5)   
     $DOD += (6*$LEVEL.to_i) + rand(1..50)   
     $PER += (6*$LEVEL.to_i) + rand(1..30)     
@@ -303,7 +324,7 @@ when "Generate"
     $PATK += 15
     $MATK += 10
     $DEX += 30
-    $ACC += 50
+    $PACC += 50
     $BLK += 14
     $DOD += 50
     $PER += 40
@@ -312,6 +333,7 @@ when "Generate"
     $SNEAK += 30
     $MOVE = 4
     $TO = 3
+    $EVADE = 45
     $SENSE1 = "Dagger"
     $SENSEL1 = 1
     $SENSE2 = "Stealth"
@@ -354,7 +376,8 @@ when "Generate"
     $PATK += (3*$LEVEL.to_i) + rand(1..10)   
     $MATK += (3*$LEVEL.to_i) + rand(1..10)   
     $DEX += (6*$LEVEL.to_i) + rand(1..50)   
-    $ACC += (3*$LEVEL.to_i) + rand(1..20)   
+    $PACC += (3*$LEVEL.to_i) + rand(1..20)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (6*$LEVEL.to_i) + rand(1..30)   
     $PER += (2*$LEVEL.to_i) + rand(1..30)   
@@ -366,7 +389,7 @@ when "Generate"
     $PATK += 30
     $MATK += 17
     $DEX += 20
-    $ACC += 30
+    $PACC += 30
     $BLK += 20
     $DOD += 30
     $PER += 25
@@ -375,6 +398,7 @@ when "Generate"
     $SNEAK += 20
     $MOVE = 5
     $TO = 4
+    $EVADE = 40
     $SENSE1 = "Bow"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -417,7 +441,8 @@ when "Generate"
     $PATK += (6*$LEVEL.to_i) + rand(10..60)   
     $MATK += (5*$LEVEL.to_i) + rand(1..10)   
     $DEX += (4*$LEVEL.to_i) + rand(1..10)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (6*$LEVEL.to_i) + rand(1..40)   
     $DOD += (4*$LEVEL.to_i) + rand(1..20)   
     $PER += (2*$LEVEL.to_i) + rand(1..20)    
@@ -429,7 +454,7 @@ when "Generate"
     $PATK += 30
     $MATK += 10
     $DEX += 10
-    $ACC += 20
+    $PACC += 20
     $BLK += 20
     $DOD += 35
     $PER += 20
@@ -438,6 +463,7 @@ when "Generate"
     $SNEAK += 20
     $MOVE = 4
     $TO = 6
+    $EVADE = 40
 	if rand(1)==1
     $SENSE1 = "Whip"
 	elsif rand(1)==0
@@ -484,14 +510,15 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..10)   
     $MATK += (3*$LEVEL.to_i) + rand(1..10)   
     $DEX += (2*$LEVEL.to_i) + rand(1..30)   
-    $ACC += (3*$LEVEL.to_i) + rand(1..20)   
+    $PACC += (3*$LEVEL.to_i) + rand(1..20)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (1*$LEVEL.to_i) + rand(1..10)   
     $DOD += (4*$LEVEL.to_i) + rand(1..10)   
     $PER += (2*$LEVEL.to_i) + rand(1..10)     
     $LUCK += (2*$LEVEL.to_i) + rand(1..20)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..20) 
 	$HP += 50
-    $ACC += 10
+    $PACC += 10
     $MR += 40
     $DEX += 30
     $PATK += 10
@@ -505,6 +532,7 @@ when "Generate"
     $STA += 6
     $MOVE = 4
     $TO = 8
+    $EVADE = 20
     $SENSE1 = "Wand"
     $SENSEL1 = 1
     $SENSE2 = "Magic Talent"
@@ -531,14 +559,15 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..10)   
     $MATK += (6*$LEVEL.to_i) + rand(1..50)   
     $DEX += (4*$LEVEL.to_i) + rand(1..30)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..20)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..20)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (3*$LEVEL.to_i) + rand(1..10)   
     $DOD += (3*$LEVEL.to_i) + rand(1..10)   
     $PER += (2*$LEVEL.to_i) + rand(1..10)    
     $LUCK += (2*$LEVEL.to_i) + rand(1..20)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..20) 
 	$HP += 50
-    $ACC += 10
+    $PACC += 10
     $MR += 50
     $DEX += 10
     $PATK += 10
@@ -552,6 +581,7 @@ when "Generate"
     $STA += 6
     $MOVE = 4
     $TO = 8
+    $EVADE = 20
     $SENSE1 = "Wand"
     $SENSEL1 = 1
     $SENSE2 = "Magic Talent"
@@ -610,14 +640,16 @@ when "Generate"
     $PATK += (7*$LEVEL.to_i) + rand(1..90)   
     $MATK += (3*$LEVEL.to_i) + rand(1..10)   
     $DEX += (4*$LEVEL.to_i) + rand(1..10)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (6*$LEVEL.to_i) + rand(1..10)   
     $DOD += (3*$LEVEL.to_i) + rand(1..10)   
     $PER += (3*$LEVEL.to_i) + rand(1..10)     
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..10) 
 	$HP += 145
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 25
     $DEX += 20
     $PATK += 50
@@ -631,6 +663,7 @@ when "Generate"
     $STA += 8
     $MOVE = 3
     $TO = 10
+    $EVADE = 10
 	if rand(8)==0
     $SENSE1 = "Two-Handed Sword"
 	elsif rand(8)==1
@@ -679,14 +712,16 @@ when "Generate"
     $PATK += (4*$LEVEL.to_i) + rand(1..30)   
     $MATK += (2*$LEVEL.to_i) + rand(1..10)   
     $DEX += (2*$LEVEL.to_i) + rand(1..30)   
-    $ACC += (5*$LEVEL.to_i) + rand(1..20)   
+    $PACC += (5*$LEVEL.to_i) + rand(1..20)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (6*$LEVEL.to_i) + rand(1..40)   
     $DOD += (3*$LEVEL.to_i) + rand(1..10)   
     $PER += (2*$LEVEL.to_i) + rand(1..10)   
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..10) 
 	$HP += 100
-    $ACC += 40
+    $PACC += 40
+    $MACC += 40
     $MR += 20
     $DEX += 30
     $PATK += 17
@@ -700,6 +735,7 @@ when "Generate"
     $STA += 6
     $MOVE = 7
     $TO = 4
+    $EVADE = 40
 	if rand(4)==0
     $SENSE1 = "Unarmed"
 	elsif rand(4)==1
@@ -750,14 +786,16 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..10)   
     $MATK += (3*$LEVEL.to_i) + rand(1..20)   
     $DEX += (4*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (4*$LEVEL.to_i) + rand(1..20)   
     $PER += (3*$LEVEL.to_i) + rand(1..20)     
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..10) 
 	$HP += 80
-    $ACC += 27
+    $PACC += 27
+    $MACC += 27
     $MR += 30
     $DEX += 20
     $PATK += 20
@@ -771,6 +809,7 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 5
+    $EVADE = 20
     $SENSE1 = "Lance"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -813,14 +852,16 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..10)   
     $MATK += (3*$LEVEL.to_i) + rand(1..20)   
     $DEX += (4*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (4*$LEVEL.to_i) + rand(1..20)   
     $PER += (3*$LEVEL.to_i) + rand(1..20)   
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..10) 
 	$HP += 80
-    $ACC += 27
+    $PACC += 27
+    $MACC += 27
     $MR += 30
     $DEX += 20
     $PATK += 20
@@ -834,6 +875,7 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 5
+    $EVADE = 20
     $SENSE1 = "Lance"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -876,14 +918,16 @@ when "Generate"
     $PATK += (3*$LEVEL.to_i) + rand(1..10)   
     $MATK += (4*$LEVEL.to_i) + rand(1..20)   
     $DEX += (4*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (5*$LEVEL.to_i) + rand(1..20)   
     $PER += (2*$LEVEL.to_i) + rand(1..20)    
     $LUCK += (1*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (3*$LEVEL.to_i) + rand(1..10) 
 	$HP += 80
-    $ACC += 27
+    $PACC += 27
+    $MACC += 27
     $MR += 30
     $DEX += 20
     $PATK += 20
@@ -897,6 +941,7 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 5
+    $EVADE = 20
     $SENSE1 = "Stick"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -939,14 +984,16 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..20)   
     $MATK += (3*$LEVEL.to_i) + rand(1..10)   
     $DEX += (3*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (6*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (6*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (4*$LEVEL.to_i) + rand(1..20)   
     $PER += (3*$LEVEL.to_i) + rand(1..20)     
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..10) 
 	$HP += 80
-    $ACC += 40
+    $PACC += 40
+    $MACC += 40
     $MR += 20
     $DEX += 30
     $PATK += 17
@@ -960,6 +1007,7 @@ when "Generate"
     $STA += 5
     $MOVE = 5
     $TO = 2
+    $EVADE = 50
     $SENSE1 = "Rapier"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -1002,14 +1050,16 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..20)   
     $MATK += (2*$LEVEL.to_i) + rand(1..10)   
     $DEX += (2*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (5*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (5*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (7*$LEVEL.to_i) + rand(1..10)   
     $DOD += (3*$LEVEL.to_i) + rand(1..20)   
     $PER += (2*$LEVEL.to_i) + rand(1..20)      
     $LUCK += (3*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..10) 
 	$HP += 120
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 40
     $DEX += 10
     $PATK += 30
@@ -1023,6 +1073,7 @@ when "Generate"
     $STA += 9
     $MOVE = 4
     $TO = 7
+    $EVADE = 20
     $SENSE1 = "Longsword"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -1065,14 +1116,16 @@ when "Generate"
     $PATK += (3*$LEVEL.to_i) + rand(1..20)   
     $MATK += (4*$LEVEL.to_i) + rand(1..10)   
     $DEX += (3*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (7*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (7*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (3*$LEVEL.to_i) + rand(1..20)   
     $PER += (3*$LEVEL.to_i) + rand(1..20)     
     $LUCK += (4*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (2*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 70
     $DEX += 0
     $PATK += 0
@@ -1086,6 +1139,7 @@ when "Generate"
     $STA += 5
     $MOVE = 4
     $TO = 8
+    $EVADE = 20
     $SENSE1 = "Staff"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -1128,7 +1182,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1136,7 +1191,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 40
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 60
     $DEX += 30
     $PATK += 20
@@ -1158,6 +1214,7 @@ when "Generate"
     $SENSEL3 = 1
     $SENSE4 = 0
     $SENSEL4 = 1
+    $EVADE = 20
 	if rand(8)==0
     $SENSE5 = "Fire Element Talent"
 	elsif rand(8)==1
@@ -1192,7 +1249,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1200,7 +1258,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 50
-    $ACC += 25
+    $PACC += 25
+    $MACC += 25
     $MR += 60
     $DEX += 10
     $PATK += 20
@@ -1214,6 +1273,7 @@ when "Generate"
     $STA += 5
     $MOVE = 6
     $TO = 3
+    $EVADE = 20
     $SENSE1 = "Rapier"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -1256,14 +1316,16 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..20)   
     $MATK += (4*$LEVEL.to_i) + rand(1..10)   
     $DEX += (6*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..60)
+$MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (4*$LEVEL.to_i) + rand(1..20)   
     $PER += (2*$LEVEL.to_i) + rand(1..20)   
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (3*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 30
+    $PACC += 30
+    $MACC += 30
     $MR += 20
     $DEX += 30
     $PATK += 20
@@ -1277,6 +1339,7 @@ when "Generate"
     $STA += 5
     $MOVE = 5
     $TO = 6
+    $EVADE = 45
     $SENSE1 = "Longbow"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -1319,7 +1382,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)  
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)    
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1327,7 +1391,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 40
-    $ACC += 30
+    $PACC += 30
+    $MACC += 30
     $MR += 0
     $DEX += 50
     $PATK += 30
@@ -1341,6 +1406,7 @@ when "Generate"
     $STA += 4
     $MOVE = 6
     $TO = 3
+    $EVADE = 60
     $SENSE1 = "Katana"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -1383,7 +1449,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)  
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1391,7 +1458,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 30
+    $PACC += 30
+    $MACC += 30
     $MR += 30
     $DEX += 30
     $PATK += 40
@@ -1405,6 +1473,7 @@ when "Generate"
     $STA += 6
     $MOVE = 4
     $TO = 8
+    $EVADE = 30
     $SENSE1 = "Saber"
     $SENSEL1 = 1
     $SENSE2 = 0
@@ -1447,7 +1516,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1455,7 +1525,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 35
+    $PACC += 35
+    $MACC += 35
     $MR += 25
     $DEX += 20
     $PATK += 15
@@ -1511,7 +1582,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1519,7 +1591,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 20
     $DEX += 30
     $PATK += 20
@@ -1575,7 +1648,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1583,7 +1657,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 50
+    $PACC += 50
+    $MACC += 50
     $MR += 40
     $DEX += 40
     $PATK += 30
@@ -1639,14 +1714,16 @@ when "Generate"
     $PATK += (3*$LEVEL.to_i) + rand(1..20)   
     $MATK += (3*$LEVEL.to_i) + rand(1..10)   
     $DEX += (5*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (6*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (6*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (3*$LEVEL.to_i) + rand(1..10)   
     $DOD += (3*$LEVEL.to_i) + rand(1..20)   
     $PER += (4*$LEVEL.to_i) + rand(1..20)    
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (3*$LEVEL.to_i) + rand(1..10) 
 	$HP += 50
-    $ACC += 40
+    $PACC += 40
+    $MACC += 40
     $MR += 20
     $DEX += 40
     $PATK += 10
@@ -1702,14 +1779,16 @@ when "Generate"
     $PATK += (2*$LEVEL.to_i) + rand(1..20)   
     $MATK += (4*$LEVEL.to_i) + rand(1..10)   
     $DEX += (3*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (2*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (2*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (2*$LEVEL.to_i) + rand(1..10)   
     $DOD += (4*$LEVEL.to_i) + rand(1..20)   
     $PER += (3*$LEVEL.to_i) + rand(1..20)   
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (1*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 40
     $DEX += 10
     $PATK += 20
@@ -1765,7 +1844,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1773,7 +1853,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 50
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 30
     $DEX += 10
     $PATK += 20
@@ -1829,7 +1910,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1837,7 +1919,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 40
-    $ACC += 50
+    $PACC += 50
+    $MACC += 50
     $MR += 25
     $DEX += 50
     $PATK += 10
@@ -1893,7 +1976,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60) 
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)    
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1901,7 +1985,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 90
-    $ACC += 25
+    $PACC += 25
+    $MACC += 25
     $MR += 20
     $DEX += 30
     $PATK += 40
@@ -1957,7 +2042,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)  
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -1965,7 +2051,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 40
-    $ACC += 50
+    $PACC += 50
+    $MACC += 50
     $MR += 40
     $DEX += 0
     $PATK += 10
@@ -2021,7 +2108,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)  
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)   
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -2029,7 +2117,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 60
-    $ACC += 30
+    $PACC += 30
+    $PACC += 30
     $MR += 25
     $DEX += 20
     $PATK += 30
@@ -2085,7 +2174,8 @@ when "Generate"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..10)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..60)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..60)  
     $BLK += (10*$LEVEL.to_i) + rand(1..10)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -2093,7 +2183,8 @@ when "Generate"
     $LUCK += (10*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (10*$LEVEL.to_i) + rand(1..10) 
 	$HP += 80
-    $ACC += 25
+    $PACC += 25
+    $MACC += 25
     $MR += 40
     $DEX += 50
     $PATK += 25
@@ -2149,14 +2240,16 @@ when "Generate"
     $PATK += (7*$LEVEL.to_i) + rand(1..40)   
     $MATK += (5*$LEVEL.to_i) + rand(1..20)   
     $DEX += (2*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..10)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..10)  
+    $MACC += (4*$LEVEL.to_i) + rand(1..10)  
     $BLK += (3*$LEVEL.to_i) + rand(1..10)   
     $DOD += (7*$LEVEL.to_i) + rand(1..20)   
     $PER += (3*$LEVEL.to_i) + rand(1..20)   
     $LUCK += (2*$LEVEL.to_i) + rand(1..10)   
     $SNEAK += (1*$LEVEL.to_i) + rand(1..10) 
 	$HP += 40
-    $ACC += 20
+    $PACC += 20
+    $MACC += 20
     $MR += 50
     $DEX += 20
     $PATK += 50
@@ -2318,7 +2411,8 @@ when "Generate"
 	puts " PATK: #$PATK"
 	puts " MATK: #$MATK"
 	puts " DEX: #$DEX"
-	puts " ACC: #$ACC"
+	puts " ACC: #$PACC"
+	puts " ACC: #$MACC"
 	puts " BLK: #$BLK"
 	puts " DOD: #$DOD"
 	puts " PER: #$PER"
@@ -2347,6 +2441,7 @@ when "Generate"
 	 puts "Ability: #$ABILITY"
 	 puts "Skills: #$SKILLS"
 	 puts "Titles: #$TITLES"
+	 puts "Evade: #$EVADE"
 #=====================================
 	open('Information\EnemyOutput.txt', "a+") do |f|
 	 f.puts "#$NAME"
@@ -2359,7 +2454,8 @@ when "Generate"
      f.puts "#$PATK"
      f.puts "#$MATK"
      f.puts "#$DEX"
-     f.puts "#$ACC"
+     f.puts "#$PACC"
+     f.puts "#$MACC"
      f.puts "#$BLK"
      f.puts "#$DOD"
      f.puts "#$PER"
@@ -2394,6 +2490,8 @@ when "Generate"
 	 f.puts "#$ABILITY"
 	 f.puts "#$SKILLS"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
+	 f.puts "#$EVADE"
 	 f.puts "#====================================="
 	end
 	open('Information\EnemyOutputFancy.txt', "a+") do |f|
@@ -2407,7 +2505,8 @@ when "Generate"
      f.puts "#$PATK"
      f.puts "#$MATK"
      f.puts "#$DEX"
-     f.puts "#$ACC"
+     f.puts "#$PACC"
+     f.puts "#$MACC"
      f.puts "#$BLK"
      f.puts "#$DOD"
      f.puts "#$PER"
@@ -2442,6 +2541,8 @@ when "Generate"
 	 f.puts "#$ABILITY"
 	 f.puts "#$SKILLS"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
+	 f.puts "#$EVADE"
 	 f.puts "#====================================="
 	end
     $NAME = 0
@@ -2451,7 +2552,8 @@ when "Generate"
     $PATK = 0
     $MATK = 0
     $DEX = 0
-    $ACC = 0
+    $PACC = 0
+    $MACC = 0
     $BLK = 0
     $DOD = 0
     $PER = 0
@@ -2483,7 +2585,8 @@ when "Monster"
     $PATK += (10*$LEVEL.to_i) + rand(1..20)   
     $MATK += (10*$LEVEL.to_i) + rand(1..20)   
     $DEX += (10*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (10*$LEVEL.to_i) + rand(1..20)   
+    $PACC += (10*$LEVEL.to_i) + rand(1..20)   
+    $MACC += (10*$LEVEL.to_i) + rand(1..20)   
     $BLK += (10*$LEVEL.to_i) + rand(1..20)   
     $DOD += (10*$LEVEL.to_i) + rand(1..20)   
     $PER += (10*$LEVEL.to_i) + rand(1..20)   
@@ -2503,7 +2606,8 @@ when "Monster"
 	puts "Enemy PATK: #$PATK"
 	puts "Enemy MATK: #$MATK"
 	puts "Enemy DEX: #$DEX"
-	puts "Enemy ACC: #$ACC"
+	puts "Enemy ACC: #$PACC"
+	puts "Enemy ACC: #$MACC"
 	puts "Enemy BLK: #$BLK"
 	puts "Enemy DOD: #$DOD"
 	puts "Enemy PER: #$PER"
@@ -2512,6 +2616,7 @@ when "Monster"
 	puts "Enemy SNEAK: #$SNEAK"
 	puts "Enemy MOVE: #$MOVE"
 	puts "Enemy TO: #$TO"
+	puts "Enemy Evade: #$EVADE"
 #=====================================
 	open('Information\EnemyOutput.txt', "a+") do |f|
 	 f.puts "#$NAME"
@@ -2524,7 +2629,8 @@ when "Monster"
      f.puts "#$PATK"
      f.puts "#$MATK"
      f.puts "#$DEX"
-     f.puts "#$ACC"
+     f.puts "#$PACC"
+     f.puts "#$MACC"
      f.puts "#$BLK"
      f.puts "#$DOD"
      f.puts "#$PER"
@@ -2559,6 +2665,8 @@ when "Monster"
 	 f.puts "#$ABILITY"
 	 f.puts "#$SKILLS"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
+	 f.puts "#$EVADE"
 	 f.puts "#====================================="
     end
 	open('Information\EnemyOutputFancy.txt', "a+") do |f|
@@ -2571,7 +2679,8 @@ when "Monster"
      f.puts "PATK: #$PATK"
      f.puts "MATK: #$MATK"
      f.puts "DEX: #$DEX"
-     f.puts "ACC: #$ACC"
+     f.puts "ACC: #$PACC"
+     f.puts "ACC: #$MACC"
      f.puts "BLK: #$BLK"
      f.puts "DOD: #$DOD"
      f.puts "PER: #$PER"
@@ -2581,6 +2690,7 @@ when "Monster"
      f.puts "MOVE: #$MOVE"
      f.puts "STA: #$STA"
      f.puts "TO: #$TO"
+	 f.puts "Evade: #$EVADE"
 	 f.puts "#====================================="
 	 end
     $HP = 0
@@ -2589,7 +2699,8 @@ when "Monster"
     $PATK = 0
     $MATK = 0
     $DEX = 0
-    $ACC = 0
+    $PACC = 0
+    $MACC = 0
     $BLK = 0
     $DOD = 0
     $PER = 0
@@ -2619,7 +2730,8 @@ when "Monster"
     $PATK += (7*$LEVEL.to_i) + rand(1..20) + 20
     $MATK += (7*$LEVEL.to_i) + rand(1..20) + 20
     $DEX += (7*$LEVEL.to_i) + rand(1..20) + 20
-    $ACC += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $PACC += (7*$LEVEL.to_i) + rand(1..20) + 20
+    $MACC += (7*$LEVEL.to_i) + rand(1..20) + 20
     $BLK += (7*$LEVEL.to_i) + rand(1..20) + 20
     $DOD += (7*$LEVEL.to_i) + rand(1..20) + 20
     $PER += (7*$LEVEL.to_i) + rand(1..20) + 20
@@ -2637,7 +2749,8 @@ when "Monster"
     $PATK += (1*$LEVEL.to_i) + rand(1..20)   
     $MATK += (1*$LEVEL.to_i) + rand(1..20)   
     $DEX += (1*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (1*$LEVEL.to_i) + rand(1..20) + 25 
+    $PACC += (1*$LEVEL.to_i) + rand(1..20) + 25 
+    $MACC += (1*$LEVEL.to_i) + rand(1..20) + 25 
     $BLK += (1*$LEVEL.to_i) + rand(1..20)   
     $DOD += (1*$LEVEL.to_i) + rand(1..20) + 25
     $PER += (1*$LEVEL.to_i) + rand(1..20)   
@@ -2655,7 +2768,8 @@ when "Monster"
     $PATK += (4*$LEVEL.to_i) + rand(1..20)   
     $MATK += (4*$LEVEL.to_i) + rand(1..20)   
     $DEX += (4*$LEVEL.to_i) + rand(1..20)   
-    $ACC += (4*$LEVEL.to_i) + rand(1..20)   
+    $PACC += (4*$LEVEL.to_i) + rand(1..20)  
+    $MACC += (4*$LEVEL.to_i) + rand(1..20)  
     $BLK += (4*$LEVEL.to_i) + rand(1..20)   
     $DOD += (4*$LEVEL.to_i) + rand(1..20)   
     $PER += (4*$LEVEL.to_i) + rand(1..20)   
@@ -2689,7 +2803,8 @@ when "Import"
     $PATK = lines[7].chomp
     $MATK = lines[8].chomp
     $DEX = lines[9].chomp
-    $ACC = lines[10].chomp
+    $PACC = lines[10].chomp
+    $MACC = lines[45].chomp
     $BLK = lines[11].chomp
     $DOD = lines[12].chomp
     $PER = lines[13].chomp
@@ -2747,7 +2862,8 @@ when "Import"
 	puts "PATK: #$PATK"
 	puts "MATK: #$MATK"
 	puts "DEX: #$DEX"
-	puts "ACC: #$ACC"
+	puts "ACC: #$PACC"
+	puts "MACC: #$MACC"
 	puts "BLK: #$BLK"
 	puts "DOD: #$DOD"
 	puts "PER: #$PER"
@@ -2793,7 +2909,8 @@ when "Import"
     $PATK = lines[7].chomp
     $MATK = lines[8].chomp
     $DEX = lines[9].chomp
-    $ACC = lines[10].chomp
+    $PACC = lines[10].chomp
+    $MACC = lines[45].chomp
     $BLK = lines[11].chomp
     $DOD = lines[12].chomp
     $PER = lines[13].chomp
@@ -2882,7 +2999,8 @@ when "Import"
         $PATK = $PATK.to_i + 7
         $MATK = $MATK.to_i + 7
         $DEX = $DEX.to_i + 7
-        $ACC = $ACC.to_i + 7
+        $PACC = $PACC.to_i + 7
+        $MACC = $MACC.to_i + 7
         $BLK = $BLK.to_i + 7
         $DOD = $DOD.to_i + 7
         $PER = $PER.to_i + 7
@@ -2895,7 +3013,8 @@ when "Import"
         $PATK = $PATK.to_i + 1
         $MATK = $MATK.to_i + 1
         $DEX = $DEX.to_i + 1
-        $ACC = $ACC.to_i + 1
+        $PACC = $PACC.to_i + 1
+        $MACC = $MACC.to_i + 1
         $BLK = $BLK.to_i + 1
         $DOD = $DOD.to_i + 1
         $PER = $PER.to_i + 1
@@ -2908,7 +3027,8 @@ when "Import"
         $PATK = $PATK.to_i + 4
         $MATK = $MATK.to_i + 4
         $DEX = $DEX.to_i + 4
-        $ACC = $ACC.to_i + 4
+        $PACC = $PACC.to_i + 4
+        $MACC = $MACC.to_i + 4
         $BLK = $BLK.to_i + 4
         $DOD = $DOD.to_i + 4
         $PER = $PER.to_i + 4
@@ -2921,7 +3041,8 @@ when "Import"
         $PATK = $PATK.to_i + 2
         $MATK = $MATK.to_i + 6
         $DEX = $DEX.to_i + 1
-        $ACC = $ACC.to_i + 1
+        $PACC = $PACC.to_i + 1
+        $MACC = $MACC.to_i + 1
         $BLK = $BLK.to_i + 1
         $DOD = $DOD.to_i + 1
         $PER = $PER.to_i + 1
@@ -2934,7 +3055,8 @@ when "Import"
         $PATK = $PATK.to_i + 0
         $MATK = $MATK.to_i + 0
         $DEX = $DEX.to_i + 0
-        $ACC = $ACC.to_i + 0
+        $PACC = $PACC.to_i + 0
+        $MACC = $MACC.to_i + 0
         $BLK = $BLK.to_i + 0
         $DOD = $DOD.to_i + 0
         $PER = $PER.to_i + 0
@@ -3242,8 +3364,8 @@ when "Import"
 	  end
 	   print "#$NAME 's MATK is #$MATK. \n"
 	  when "ACC"
-	   $ACCOld = $ACC
-	   print "#$NAME 's ACC is #$ACC. \n"
+	   $PACCOld = $PACC
+	   print "#$NAME 's ACC is #$PACC. \n"
 	   print "Level Up Amounts are Weighted 1....10.\n"
 	   print "put in Approprate Number..\n"
 	   case gets().strip()
@@ -3251,75 +3373,154 @@ when "Import"
 	  Screen.clear
 	     when "1"
 		   $INCREASE = rand(0..5)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "2"
            $INCREASE = rand(1..7)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "3"
            $INCREASE = rand(2..10)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "4"
            $INCREASE = rand(3..13)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "5"
            $INCREASE = rand(4..15)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "6"
            $INCREASE = rand(5..16)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "7"
            $INCREASE = rand(6..17)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "8"
            $INCREASE = rand(7..18)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "9"
            $INCREASE = rand(8..19)
-           $ACC  = $ACC.to_i+ $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+           $PACC  = $PACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	     when "10" 
            $INCREASE = $INCREASE.to_i
-	       print "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       print "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       open('Information\LevelUpOutput.txt', "a+") do |f|
-	       f.puts "<Accuracy Increased: #$ACCOld >#$INCREASE> #$ACC>"
+	       f.puts "<Accuracy Increased: #$PACCOld >#$INCREASE> #$PACC>"
 	       end
 	  end
-	   print "#$NAME 's ACC is #$ACC. \n"
+	   print "#$NAME 's PACC is #$PACC. \n"
+	  when "MACC"
+	   $MACCOld = $MACC
+	   print "#$NAME 's ACC is #$MACC. \n"
+	   print "Level Up Amounts are Weighted 1....10.\n"
+	   print "put in Approprate Number..\n"
+	   case gets().strip()
+	  when "clear"
+	  Screen.clear
+	     when "1"
+		   $INCREASE = rand(0..5)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "2"
+           $INCREASE = rand(1..7)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "3"
+           $INCREASE = rand(2..10)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "4"
+           $INCREASE = rand(3..13)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "5"
+           $INCREASE = rand(4..15)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "6"
+           $INCREASE = rand(5..16)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "7"
+           $INCREASE = rand(6..17)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "8"
+           $INCREASE = rand(7..18)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "9"
+           $INCREASE = rand(8..19)
+           $MACC  = $MACC.to_i+ $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	     when "10" 
+           $INCREASE = $INCREASE.to_i
+	       print "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<Accuracy Increased: #$MACCOld >#$INCREASE> #$MACC>"
+	       end
+	  end
+	   print "#$NAME 's MACC is #$MACC. \n"
 	  when "DEX"
 	   $DEXOld = $DEX
 	   print "#$NAME 's DEX is #$DEX. \n"
@@ -3914,42 +4115,72 @@ when "Import"
 	     when "1"
 		   $INCREASE = 1
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL1  = $SENSEL1.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
+	       end
 	       puts "<#$SENSE1 Increased: #$SENSEL1Old >#$INCREASE> #$SENSEL1>"
 	  end
 	        puts "#$SENSE1's level is #$SENSEL1 \n"
@@ -3961,42 +4192,72 @@ when "Import"
 	     when "1"
 		   $INCREASE = 1
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL2  = $SENSEL2.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
+	       end
 	       puts "<#$SENSE2 Increased: #$SENSEL2Old >#$INCREASE> #$SENSEL2>"
 	  end
 	        puts "#$SENSE2's level is #$SENSEL2 \n"
@@ -4008,42 +4269,72 @@ when "Import"
 	     when "1"
 		   $INCREASE = 1
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL3  = $SENSEL3.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
+	       end
 	       puts "<#$SENSE3 Increased: #$SENSEL3Old >#$INCREASE> #$SENSEL3>"
 	  end
 	        puts "#$SENSE3's level is #$SENSEL3 \n"
@@ -4055,42 +4346,72 @@ when "Import"
 	     when "1"
 		   $INCREASE = 1
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "2"
 		   $INCREASE = 2
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "3"
 		   $INCREASE = 3
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "4"
 		   $INCREASE = 4
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "5"
 		   $INCREASE = 5
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "6"
 		   $INCREASE = 6
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "7"
 		   $INCREASE = 7
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "8"
 		   $INCREASE = 8
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "9"
 		   $INCREASE = 9
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	     when "10"
 		   $INCREASE = 10
            $SENSEL4  = $SENSEL4.to_i + $INCREASE.to_i
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
+	       end
 	       puts "<#$SENSE4 Increased: #$SENSEL4Old >#$INCREASE> #$SENSEL4>"
 	  end
 	        puts "#$SENSE4's level is #$SENSEL4 \n"
@@ -4141,6 +4462,9 @@ when "Import"
 	       puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
 	  end
 	        puts "#$SENSE5's level is #$SENSEL5 \n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE5 Increased: #$SENSEL5Old >#$INCREASE> #$SENSEL5>"
+	       end
 	     when "6"
 	        puts "#$SENSE6's level is #$SENSEL6 \n"
 	        puts "Level it up by how many points....?\n"
@@ -4188,6 +4512,9 @@ when "Import"
 	       puts "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
 	  end
 	        puts "#$SENSE6's level is #$SENSEL6 \n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE6 Increased: #$SENSEL6Old >#$INCREASE> #$SENSEL6>"
+	       end
 	     when "7"
 	        puts "#$SENSE7's level is #$SENSEL7 \n"
 	        puts "Level it up by how many points....?\n"
@@ -4235,6 +4562,9 @@ when "Import"
 	       puts "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
 	  end
 	        puts "#$SENSE7's level is #$SENSEL7 \n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE7 Increased: #$SENSEL7Old >#$INCREASE> #$SENSEL7>"
+	       end
 	     when "8"
 	        puts "#$SENSE8's level is #$SENSEL8 \n"
 	        puts "Level it up by how many points....?\n"
@@ -4282,6 +4612,9 @@ when "Import"
 	       puts "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
 	  end
 	        puts "#$SENSE8's level is #$SENSEL8 \n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE8 Increased: #$SENSEL8Old >#$INCREASE> #$SENSEL8>"
+	       end
 	     when "9"
 	        puts "#$SENSE9's level is #$SENSEL9 \n"
 	        puts "Level it up by how many points....?\n"
@@ -4329,6 +4662,9 @@ when "Import"
 	       puts "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
 	  end
 	        puts "#$SENSE9's level is #$SENSEL9 \n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE9 Increased: #$SENSEL9Old >#$INCREASE> #$SENSEL9>"
+	       end
 	     when "10"
 	        puts "#$SENSE10's level is #$SENSEL10 \n"
 	        puts "Level it up by how many points....?\n"
@@ -4376,6 +4712,9 @@ when "Import"
 	       puts "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
 	  end
 	        puts "#$SENSE10's level is #$SENSEL10 \n"
+	       open('Information\LevelUpOutput.txt', "a+") do |f|
+	       f.puts "<#$SENSE10 Increased: #$SENSEL10Old >#$INCREASE> #$SENSEL10>"
+	       end
 	  end
 	  end
 	  end
@@ -4403,7 +4742,8 @@ when "Import"
      f.puts "#$PATK"
      f.puts "#$MATK"
      f.puts "#$DEX"
-     f.puts "#$ACC"
+     f.puts "#$PACC"
+     f.puts "#$MACC"
      f.puts "#$BLK"
      f.puts "#$DOD"
      f.puts "#$PER"
@@ -4438,6 +4778,7 @@ when "Import"
 	 f.puts "#$ABILITY"
 	 f.puts "#$SKILLS"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
 	 f.puts "#====================================="
 	 end
 	     when "Player"	
@@ -4455,7 +4796,8 @@ when "Import"
      f.puts "PATK: #$PATK"
      f.puts "MATK: #$MATK"
      f.puts "DEX: #$DEX"
-     f.puts "ACC: #$ACC"
+     f.puts "ACC: #$PACC"
+     f.puts "ACC: #$MACC"
      f.puts "BLK: #$BLK"
      f.puts "DOD: #$DOD"
      f.puts "PER: #$PER"
@@ -4486,6 +4828,7 @@ when "Import"
 	 f.puts "#$SKILLS"
  	 f.puts "Titles:"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
 	 f.puts "#====================================="
 	 end
 	     when "Both"
@@ -4503,7 +4846,8 @@ when "Import"
      f.puts "#$PATK"
      f.puts "#$MATK"
      f.puts "#$DEX"
-     f.puts "#$ACC"
+     f.puts "#$PACC"
+     f.puts "#$MACC"
      f.puts "#$BLK"
      f.puts "#$DOD"
      f.puts "#$PER"
@@ -4538,6 +4882,7 @@ when "Import"
 	 f.puts "#$ABILITY"
 	 f.puts "#$SKILLS"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
 	 f.puts "#====================================="
 	 end
 	puts "What would you like to name the player readable file?"
@@ -4554,7 +4899,8 @@ when "Import"
      f.puts "PATK: #$PATK"
      f.puts "MATK: #$MATK"
      f.puts "DEX: #$DEX"
-     f.puts "ACC: #$ACC"
+     f.puts "PACC: #$PACC"
+     f.puts "MACC: #$MACC"
      f.puts "BLK: #$BLK"
      f.puts "DOD: #$DOD"
      f.puts "PER: #$PER"
@@ -4585,6 +4931,7 @@ when "Import"
 	 f.puts "#$SKILLS"
  	 f.puts "Titles:"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
 	 f.puts "#====================================="
 	 end
 	 end
@@ -4600,7 +4947,8 @@ $STA = 0
 $PATK = 0
 $MATK = 0
 $DEX = 0
-$ACC = 0
+$PACC = 0
+$MACC = 0
 $BLK = 0
 $DOD = 0
 $PER = 0
@@ -4655,7 +5003,8 @@ $STA = 0
 $PATK = 0
 $MATK = 0
 $DEX = 0
-$ACC = 0
+$PACC = 0
+$MACC = 0
 $BLK = 0
 $DOD = 0
 $PER = 0
@@ -4713,7 +5062,8 @@ $TITLES = 0
      f.puts "#$PATK"
      f.puts "#$MATK"
      f.puts "#$DEX"
-     f.puts "#$ACC"
+     f.puts "#$PACC"
+     f.puts "#$MACC"
      f.puts "#$BLK"
      f.puts "#$DOD"
      f.puts "#$PER"
@@ -4748,6 +5098,7 @@ $TITLES = 0
 	 f.puts "#$ABILITY"
 	 f.puts "#$SKILLS"
 	 f.puts "#$TITLES"
+f.puts "#$EVADE"
 	 f.puts "#====================================="
 	 end
 	 break
@@ -4761,8 +5112,3 @@ else
 end
 end
 end
-
-
-
-
-

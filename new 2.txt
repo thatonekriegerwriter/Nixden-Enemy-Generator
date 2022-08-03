@@ -1,0 +1,113 @@
+
+
+module EnemyStation
+end
+
+module LevelUpStation
+end
+
+module CraftingStation
+    def self.craft
+        puts "What would you like to craft?"
+        puts "[Smithing]"
+        puts "[Synthesis]"
+        puts "[Woodworking]"
+        puts "[Craftsmanship]"
+        puts "[Cooking]"
+        puts "[Mixing]"
+        puts "[Pelting]"
+        puts "[Spinning]"
+        puts "[Farming]"
+        puts "[Flower Arranging]"
+		$CRAFTINGTYPE = gets.strip
+		if $CRAFTINGTYPE == "Farming"
+        puts "Farming is an RP based sense."
+		break
+		end
+		if $CRAFTINGTYPE == "Flower Arranging"
+        puts "Flower Arranging is an RP based sense."
+		break
+		end
+		if $CRAFTINGTYPE == "Cooking"
+        puts "Cooking is an RP based sense."
+		break
+		end
+		puts "Lets load up your stats, why don't we."
+   lines = Array.new
+  puts "Who do you want to import?\n"  
+	path = "information/CharacterImporter/"
+	file_name = gets.strip
+   File.open((File.join(path,file_name))).each { |line| lines << line }
+  print "Importing character from file....\n"  
+	$NAME = lines[0].chomp
+	$SPECIES = lines[1].chomp
+	$CLASS = lines[2].chomp
+	$LEVEL = lines[3].chomp
+	$LEVELOld = $LEVEL 
+    $HP = lines[4].chomp
+    $MR = lines[5].chomp
+    $STA = lines[6].chomp
+    $PATK = lines[7].chomp
+    $MATK = lines[8].chomp
+    $DEX = lines[9].chomp
+    $ACC = lines[10].chomp
+    $BLK = lines[11].chomp
+    $DOD = lines[12].chomp
+    $PER = lines[13].chomp
+    $CHAR = lines[14].chomp
+    $LUCK = lines[15].chomp
+    $SNEAK = lines[16].chomp
+    $MOVE = lines[17].chomp
+    $TO = lines[18].chomp
+    $SENSE1 = lines[19].chomp
+    $SENSEL1 = lines[20].chomp
+    $SENSE2 = lines[21].chomp
+    $SENSEL2 = lines[22].chomp
+    $SENSE3 = lines[23].chomp
+    $SENSEL3 = lines[24].chomp
+    $SENSE4 = lines[25].chomp
+    $SENSEL4 = lines[26].chomp
+    $SENSE5 = lines[27].chomp
+    $SENSEL5 = lines[28].chomp
+    $SENSE6 = lines[29].chomp
+    $SENSEL6 = lines[30].chomp
+    $SENSE7 = lines[31].chomp
+    $SENSEL7 = lines[32].chomp
+    $SENSE8 = lines[33].chomp
+    $SENSEL8 = lines[34].chomp
+    $SENSE9 = lines[35].chomp
+    $SENSEL9 = lines[36].chomp
+    $SENSE10 = lines[37].chomp
+    $SENSEL10 = lines[38].chomp
+    $TRAIT1 = lines[39].chomp
+    $TRAIT2 = lines[40].chomp
+    $PERKS = lines[41].chomp
+    $ABILITY = lines[42].chomp
+    $SKILLS = lines[43].chomp
+    $TITLES = lines[44].chomp
+        puts "What level of quality does the material you are working with rate as?"
+        puts "(If your material does not have a quality level, please message Tammun, and tell her.)"
+		$CRAFTINGLEVEL = gets.strip
+        if $CRAFTINGLEVEL == 0
+        puts "Invalid response."
+		break
+		else
+        puts "The Quality Level of the item you are working with is #$CRAFTINGLEVEL, and you are doing a #$CRAFTINGTYPE type crafting, correct?"
+        puts "[Yes]"
+        puts "[No]"
+		case gets().strip()
+		when "Yes"
+		puts "Let's get started."
+		while $craftingi < $craftingnum  do
+		puts "Your DEX is #$DEX."
+		puts "You ."
+		
+        end		
+		when "No"
+		break
+		end
+		end
+    end
+end
+
+

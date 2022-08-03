@@ -1,5 +1,3 @@
-When editing the "CharacterImporter" file, this is the order of what needs to go where:
-
 NAME
 SPECIES
 CLASS

@@ -1,0 +1,42 @@
+Name: Gonlag
+Species: Skeleton
+Class: Knight
+Level: 4
+HP: 130/130
+MR: 29/29
+STA: 7/7
+PATK: 114
+MATK: 23
+DEX: 36
+ACC: 67
+BLK: 57
+DOD: 33
+PER: 25
+CHAR: 20
+LUCK: 25
+SNEAK: 20
+MOVE: 4
+TO 5
+Senses:
+Sword Lv24 
+Armor Lv27
+Throw Lv16
+Two-Handed Sword Lv14
+Unarmed Lv22
+Magic Power Lv15
+Magic Talent Lv10
+Fire Element Talent Lv10
+MP Recovery Lv9
+None Lv
+Traits:
+Walking Tank
+Bloody Mess
+Perks:
+Shipwrecked(Acc)
+Ability:
+He Who Fights Demons
+Skills:
+Round Tour
+Titles:
+None
+#=====================================

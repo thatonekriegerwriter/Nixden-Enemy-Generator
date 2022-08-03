@@ -2,7 +2,7 @@ Name: Danbalf
 Species: Terran
 Class: Sage
 Level: 16
-HP: 80
+HP: 59
 MR: 223 235+6
 STA: 7
 PATK: 66  78+6
@@ -10,24 +10,26 @@ MATK: 97  109+6
 DEX: 67  79+6
 ACC: 62  74+6
 BLK: 52  66+6
-DOD: 92  104+6
+DOD: 92  104+6 (-16 for 3 Turns)
 PER: 74  +6
 CHAR: 25
 LUCK: 65
 SNEAK: 46
-MOVE: 4
+MOVE: 4 (0)
 TO: 5
 Senses:
 Unarmed Lv 45 
 Sorcery Lv 21
 Resonance Lv 12
-Neutral Element Talent Lv 35
 MR Regeneration Lv 9
+Neutral Element Talent Lv 35
 Enchantment Sage Lv 12
 Fairy's Blessing Lv 61
 Robe Lv 45
-Action Restriction Release Lv 65
 Magic Increase Lv 31
+Parallel Minds Lv 2
+Unequipped:
+Action Restriction Release Lv 65
 Traits:
 Another Kick in The Head
 Cinematic Technique
